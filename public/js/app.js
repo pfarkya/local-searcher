@@ -1,0 +1,57 @@
+'use strict';
+
+var foodMeApp = angular.module('foodMeApp', ['ngResource']);
+
+foodMeApp.config(function($routeProvider) {
+
+  $routeProvider.
+       when('/login', {
+        controller: 'LoginController',
+        templateUrl: 'views/login.html'
+      }).
+      when('/login', {
+        controller: 'LoginController',
+        templateUrl: 'views/login.html'
+      }).
+	when('/setting', {
+        controller: 'SettingController',
+        templateUrl: 'views/setting.html'
+      }).	  
+	  when('/', {
+        controller: 'HomeController',
+        templateUrl: 'views/home.html'
+      }).
+	  when('/search', {
+        controller: 'SearchController',
+        templateUrl: 'views/search.html'
+      }).
+      when('/checkout', {
+        controller: 'CheckoutController',
+        templateUrl: 'views/checkout.html'
+      }).
+	  when('/profile', {
+        controller: 'ProfileController',
+        templateUrl: 'views/profile.html'
+      }).
+	  when('/forgot_password', {
+        controller: 'ForgotPasswordController',
+        templateUrl: 'views/forgot_password.html'
+      }).
+      when('/thank-you', {
+        controller: 'ThankYouController',
+        templateUrl: 'views/thank-you.html'
+      }).
+      when('/register', {
+        controller: 'RegisterController',
+        templateUrl: 'views/register.html'
+      }).
+      when('/who-we-are', {
+        templateUrl: 'views/who-we-are.html'
+      }).
+      when('/how-it-works', {
+        templateUrl: 'views/how-it-works.html'
+      }).
+      when('/help', {
+        templateUrl: 'views/help.html'
+      });
+});
