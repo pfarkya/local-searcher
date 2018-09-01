@@ -3,255 +3,58 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Search Page</title>
+<style> 
+	
+#bgimage {
+	height: 700px; 
+	background-image: url("img/homepage.jpg");
+	background-size: 100% 100%;
+	opacity: 1.0;
+	
+	
+}
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
+</style>
+	
+	
 </head>
 
 <body>
+<div id="wrapper">	
 
-    <div id="wrapper">
+<div id="bgimage">
+		<div  style="color:white; padding-top: 5%" align="center">   
+			<h1 >EMPOWER YOUR BUSINESS, ONLINE PROFILE</h1>
+			<h5><b>This digital platform helping businesses to bring their contentonline and thrive in this compititive world</b></h5>
 
-   
 
-        <div id="" class="gray-bg">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-           
-            <form role="search" style="padding-left:30px; width: 300px; "  class="navbar-form-custom">
-                <div class="form-group">
-                    <input type="text"  placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                </div>
-            </form>
-			<a class="navbar-minimalize minimalize-styl-2 btn btn-primary " style="margin	-left:50px; "  ng-click="searchPage()"><i class="fa fa-bars"></i> </a>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <a  ng-click="myFunction()" ><span  >Login</span></a>
-                </li>
-                <li>
-                    <a  ng-click="myFunction1()" >
-                        <i class="fa fa-sign-out" ></i> Create Account
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
-        </div>
-        
-		<div class="wrapper wrapper-content animated fadeInRight"  style="padding: 0px 10px 40px;">
-            <div class="row">
-				<div class="col-lg-2"></div>
-                <div class="col-lg-8">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <span class="label label-primary pull-right">NEW</span>
-                            <h5>IT-Design Team</h5>
-                        </div>
-                        <div class="ibox-content">
-                           
-                            <h4>Info about Design Team</h4>
-                            <p>
-                                It is a long established fact that a reader will be distracted by the readable content
-                                of a page when looking at its layout. The point of using Lorem Ipsum is that it has.
-                            </p>
-                            
-                            <div class="row  m-t-sm">
-                                <div class="col-sm-4">
-                                    <div class="font-bold">PROJECTS</div>
-                                    12
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="font-bold">RANKING</div>
-                                    4th
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <div class="font-bold">BUDGET</div>
-                                    $200,913 <i class="fa fa-level-up text-navy"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="ibox">
-                        <div class="ibox-title">	
-                            <h5>IT-04 - Marketing Team</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="team-members">
-                                <a href="teams_board.html#"><img alt="member" class="img-circle" src="img/a4.jpg"></a>
-                                <a href="teams_board.html#"><img alt="member" class="img-circle" src="img/a5.jpg"></a>
-                                <a href="teams_board.html#"><img alt="member" class="img-circle" src="img/a6.jpg"></a>
-                                <a href="teams_board.html#"><img alt="member" class="img-circle" src="img/a8.jpg"></a>
-                                <a href="teams_board.html#"><img alt="member" class="img-circle" src="img/a7.jpg"></a>
-                            </div>
-                            <h4>Info about Design Team</h4>
-                            <p>
-                                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.
-                            </p>
-                            <div>
-                                <span>Status of current project:</span>
-                                <div class="stat-percent">32%</div>
-                                <div class="progress progress-mini">
-                                    <div style="width: 32%;" class="progress-bar"></div>
-                                </div>
-                            </div>
-                            <div class="row  m-t-sm">
-                                <div class="col-sm-4">
-                                    <div class="font-bold">PROJECTS</div>
-                                    24
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="font-bold">RANKING</div>
-                                    3th
-                                </div>
-                                <div class="col-sm-4 text-right">
-                                    <div class="font-bold">BUDGET</div>
-                                    $190,325 <i class="fa fa-level-up text-navy"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-		<div class="wrapper wrapper-content  animated fadeInRight">
-                <div class="row">
-					<div class="col-lg-2"></div>
-                    <div class="col-lg-8">
-                        <div class="social-feed-box">
-
-                            <div class="pull-right social-action dropdown">
-                                <button data-toggle="dropdown" class="dropdown-toggle btn-white">
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                                <ul class="dropdown-menu m-t-xs">
-                                    <li><a href="social_feed.html#">Config</a></li>
-                                </ul>
-                            </div>
-                            <div class="social-avatar">
-                                <a href="social_feed.html" class="pull-left">
-                                    <img alt="image" src="img/a6.jpg">
-                                </a>
-                                <div class="media-body">
-                                    <a href="social_feed.html#">
-                                        Andrew Williams
-                                    </a>
-                                    <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
-                                </div>
-                            </div>
-                            <div class="social-body">
-                                <p>
-                                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their
-                                    default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                                    in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                                    default model text.
-                                </p>
-                                <p>
-                                    Lorem Ipsum as their
-                                    default model text, and a search for 'lorem ipsum' will uncover many web sites still
-                                    in their infancy. Packages and web page editors now use Lorem Ipsum as their
-                                    default model text.
-                                </p>
-                                <img src="img/gallery/11.jpg" class="img-responsive">
-                                <div class="btn-group">
-                                    <button class="btn btn-white btn-xs"><i class="fa fa-thumbs-up"></i> Like this!</button>
-                                    <button class="btn btn-white btn-xs"><i class="fa fa-comments"></i> Comment</button>
-                                    <button class="btn btn-white btn-xs"><i class="fa fa-share"></i> Share</button>
-                                </div>
-                            </div>
-                            <div class="social-footer">
-                                <div class="social-comment">
-                                    <a href="social_feed.html" class="pull-left">
-                                        <img alt="image" src="img/a1.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="social_feed.html#">
-                                            Andrew Williams
-                                        </a>
-                                        Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words.
-                                        <br/>
-                                        <a href="social_feed.html#" class="small"><i class="fa fa-thumbs-up"></i> 26 Like this!</a> -
-                                        <small class="text-muted">12.06.2014</small>
-                                    </div>
-                                </div>
-
-                                <div class="social-comment">
-                                    <a href="social_feed.html" class="pull-left">
-                                        <img alt="image" src="img/a2.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="social_feed.html#">
-                                            Andrew Williams
-                                        </a>
-                                        Making this the first true generator on the Internet. It uses a dictionary of.
-                                        <br/>
-                                        <a href="social_feed.html#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                        <small class="text-muted">10.07.2014</small>
-                                    </div>
-                                </div>
-
-                                <div class="social-comment">
-                                    <a href="social_feed.html" class="pull-left">
-                                        <img alt="image" src="img/a8.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <a href="social_feed.html#">
-                                            Andrew Williams
-                                        </a>
-                                        Making this the first true generator on the Internet. It uses a dictionary of.
-                                        <br/>
-                                        <a href="social_feed.html#" class="small"><i class="fa fa-thumbs-up"></i> 11 Like this!</a> -
-                                        <small class="text-muted">10.07.2014</small>
-                                    </div>
-                                </div>
-
-                                <div class="social-comment">
-                                    <a href="social_feed.html" class="pull-left">
-                                        <img alt="image" src="img/a3.jpg">
-                                    </a>
-                                    <div class="media-body">
-                                        <textarea class="form-control" placeholder="Write comment..."></textarea>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                 </div>
-         </div>
-		
-		
-
-        </div>
-        
-		
+			<div style=" padding-top: 0%">
+				<h1 style="color:#cc3300;" ><b>Get Started<b></h1>
+				<button type="submit" class="btn btn-primary block  m-b"  ng-click="register()"  >Register</button>
+			</div>
 		</div>
+			
+			<div style="color:white; padding-top: 20%;">
+			<div class="col-md-6"></div>
+			<div class="col-md-6"><h2>Develop online business profile </br>Create a rich profile </br>Magically develop of business </br>Seamlessly Connect with your customer, gather feedback</h2></div>
+			</div>
 
+</div >
 
+<div style="color:#9494b8;" align="center"  >
+<div class="col-md-4"> <h1>One source of truth</h1><div  style="height:200px"></div> </div>
+<div class="col-md-4"> <h1>Easy to maintain</h1> <div  style="height:200px"></div> </div>
+<div class="col-md-4"> <h1>Itrate with confidence</h1> <div  style="height:200px"></div> </div>
+</div>
+<h1 align="center" ><b>Header need to write here somthing</b><h1>
 
-    <!-- Mainly scripts -->
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<div>
+</div>
 
-    <!-- Custom and plugin javascript -->
-    <script src="js/inspinia.js"></script>
-    <script src="js/plugins/pace/pace.min.js"></script>
+	
 
-
+</div>
 </body>
 
 </html>

@@ -6,8 +6,11 @@ foodMeApp.controller('LoginController',
     $location.url('/login');
   } */
   
-  $("#wrapper").hide();
-    alert("LoginController");
+  $("#Header").hide();
+  $("#SideHeader").hide();
+  $("#page-wrapper").css("margin-left", "0");
+  
+
   
   $scope.myFunction = function() {
 		 $location.url('/profile');

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/bootstrap-united.css">
  -->
 
-	<meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -20,53 +20,64 @@
 
     <!-- Gritter -->
     <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-	<link href="css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
+
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://rawgit.com/andrewng330/PreviewImage/master/preview.image.min.js"></script>
 
 
-
-<style>
-
-
-</style>
-	
-	
-</head>
 <body>
 <div id="container">
+	
+<div id="wrapper">
 
-	     <nav class="navbar-default navbar-static-side" id="SideHeader" role="navigation" ng-controller="SideHeaderController" >
+	 <nav ng-controller="SideHeaderController" class="navbar-default navbar-static-side" role="navigation"  id="SideHeader" >
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                            <img alt="image" class="img-circle" ng-click="div_show()" src="img/profile_small.jpg" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="profile_2.html#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
                              </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a ng-click="profile()">Profile</a></li>
-                            <li><a ng-click="edit_profile()">Edit Profile</a></li>
+                            <li><a href="profile.html">Profile</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
-                            <li><a  ng-click="login()">Logout</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
-                        Finddy
+                        IN+
                     </div>
                 </li>
-				<li>
-                    <a ng-click="profile()" ><i class="fa fa-user"></i> <span class="nav-label">Profile</span></a>
+                <li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="index.html">Dashboard v.1</a></li>
+                        <li><a href="dashboard_2.html">Dashboard v.2</a></li>
+                        <li><a href="dashboard_3.html">Dashboard v.3</a></li>
+                        <li><a href="dashboard_4_1.html">Dashboard v.4</a></li>
+                        <li><a href="dashboard_5.html">Dashboard v.5 </a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a ng-click="settingPage()" ><i class="fa fa-gear"></i> <span class="nav-label">Setting</span></a>
+                    <a ng-click="setting()"><i class="fa fa-diamond"></i> <span class="nav-label">Setting</span></a>
                 </li>
-               
+                <li>
+                    <a href="profile.html#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Graphs</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="graph_flot.html">Flot Charts</a></li>
+                        <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                        <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                        <li><a href="graph_chartjs.html">Chart.js</a></li>
+                        <li><a href="graph_chartist.html">Chartist</a></li>
+                        <li><a href="c3.html">c3 charts</a></li>
+                        <li><a href="graph_peity.html">Peity Charts</a></li>
+                        <li><a href="graph_sparkline.html">Sparkline Charts</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Mailbox </span><span class="label label-warning pull-right">16/24</span></a>
                     <ul class="nav nav-second-level collapse">
@@ -77,37 +88,29 @@
                     </ul>
                 </li>
                 <li>
-                    <a ng-click="addProduct()" ><i class="fa fa-pie-chart"></i> <span class="nav-label">Add Product</span>  </a>
+                    <a href="metrics.html"><i class="fa fa-pie-chart"></i> <span class="nav-label">Metrics</span>  </a>
                 </li>
-                <li>
-                    <a href="widgets.html"><i class="fa fa-flask"></i> <span class="nav-label">Widgets</span></a>
+               
+				
+				<li>
+                    <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span></a>
                 </li>
-         
-                
-
-                <li>
-                    <a href="profile_2.html#"><i class="fa fa-picture-o"></i> <span class="nav-label">Gallery</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="basic_gallery.html">Lightbox Gallery</a></li>
-                        <li><a href="slick_carousel.html">Slick Carousel</a></li>
-                        <li><a href="carousel.html">Bootstrap Carousel</a></li>
-
-                    </ul>
+                <li class="landing_link">
+                    <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
                 </li>
-                
-
                 <li class="special_link">
-                    <a ng-click="login()" ><i class="fa fa-sign-out"></i> <span class="nav-label">Log Out</span></a>
+                    <a href="package.html"><i class="fa fa-database"></i> <span class="nav-label">Package</span></a>
                 </li>
             </ul>
 
         </div>
     </nav>
-
-        <div id="page-wrapper" class="gray-bg"  ng-controller="HeaderController" >
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0" id="Header" >
+ 
+        <div  id="Header" ng-controller="HeaderController" >
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0"  >
         <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " ><i class="fa fa-bars"></i> </a>
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="profile_2.html#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="search_results.html">
                 <div class="form-group">
                     <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
@@ -116,10 +119,10 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome to Finddy</span>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to INSPINIA+ Admin Theme.</span>
                 </li>
                 <li id="message" class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" ng-click="profile()">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="profile_2.html#">
                         <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
@@ -213,26 +216,25 @@
                         </li>
                     </ul>
                 </li>
-
-                <li id="CreateAccount" >
+				<li id="CreateAccount">
                     <a ng-click="register()" >
                         <i class="fa fa-sign-out"></i> Create Account
                     </a>
                 </li>
-				<li id="logout" >
+                <li id="logout" >
                     <a ng-click="logout()" >
-                        <i class="fa fa-sign-out"></i> Log out
+                        <i class="fa fa-sign-out"></i> Log In
                     </a>
                 </li>
-				
             </ul>
-
+	
         </nav>
-       
+		</div>
+		</div>
+
 	<ng-view></ng-view>	
 </div>
-
-	
+</div>
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-resource.js"></script>
@@ -244,13 +246,8 @@
 <script src="js/controllers/ForgotPasswordController.js"></script>
 <script src="js/controllers/NavbarController.js"></script>
 <script src="js/controllers/LoginController.js"></script>
-<script src="js/controllers/AddProductDetailController.js"></script>
-<script src="js/controllers/EditProductDetailController.js"></script>
 <script src="js/controllers/SettingController.js"></script>
-<script src="js/controllers/Edit_SettingController.js"></script>
-<script src="js/controllers/EditProfileController.js"></script>
 <script src="js/controllers/HomeController.js"></script>
-<script src="js/controllers/PopupController.js"></script>
 <script src="js/controllers/SideHeaderController.js"></script>
 <script src="js/controllers/HeaderController.js"></script>
 <script src="js/controllers/SearchController.js"></script>
@@ -265,14 +262,11 @@
 <script src="js/services/Restaurant.js"></script>
 
   <!-- Mainly scripts -->
-   <!--  <script src="js/jquery-3.1.1.min.js"></script>  commented by sonu-->  
-	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	
-    <script src="js/plugins/cropper/cropper.min.js"></script>
-    <!-- Tags Input -->
-    <script src="js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
     <!-- Flot -->
     <script src="js/plugins/flot/jquery.flot.js"></script>
     <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
@@ -307,75 +301,6 @@
     <script src="js/plugins/toastr/toastr.min.js"></script>
 
 
-<!-- <div id="body" style="overflow:hidden;" ng-controller="PopupController" >
-
-			<div id="Fmodal">
-				<div id="popupContact">
-					<div id="POPUP">
-						<img id="close" src="img/cancel.png" onclick ="div_hide()">
-						<h2 id="popupheader">Contact Us</h2>
-						<hr>
-						<div id="modalcontent" style="padding-bottom: 10px;" > </div>
-						
-						<button id="popupsave" ng-click="check_empty" class="btn btn-primary  m-b pull-left" ><strong>OK</strong></button>
-						<button id="popupcancel" class="btn btn-primary  m-b pull-right" onclick ="div_hide()" ><strong>Cancel</strong></button>
-						</br>
-						</br>
-					</div>
-				</div>
-			</div>
-		  <button id="popup" onclick="div_show()">Popup</button>  
-</div> -->
-
-<button type="button" class="btn btn-primary"  onclick="div_show()">
-      Basic fadeIn effect
- </button>
-                            <div class="modal inmodal" id="Fmodal" tabindex="-1" role="dialog"  aria-hidden="true"  ng-controller="PopupController">
-                                <div class="modal-dialog" >
-                                    <div class="modal-content animated fadeIn">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<!--                                             <i class="fa fa-clock-o modal-icon"></i> -->
-                                            <h4 id="popupheader" class="modal-title">Dummy Modal</h4>
-                                            <small>Write somthing here</small>
-                                        </div>
-                                        <div class="modal-body">
-                                             
-											<div id="modalcontent" style="padding-bottom: 10px;" > Your  Details</div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button"  id="popupcancel" class="btn btn-white" data-dismiss="modal">Close</button>
-                                            <button type="button"  id="popupsave"  class="btn btn-primary">Save </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-	
-<script>
-// Validating Empty Field
-//$scope.check_empty = function() {
-
-//Function To Display Popup
-//$scope.div_show = function() {
-
-
-
-
-function div_show(){
-$("#Fmodal").modal()
-
-}
-
-//Function to Hide Popup
-//$scope.div_hide = function() {
-function div_hide(){
-document.getElementById('Fmodal').style.display = "none";
-}	
-</script>
-	
-	
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
