@@ -1,18 +1,10 @@
 'use strict';
 
-foodMeApp.controller('SettingController',
-    function SettingController($scope, customer, $location, Restaurant) {
+foodMeApp.controller('Edit_SettingController',
+    function Edit_SettingController($scope, $location) {
   /* if (!customer.address) {
     $location.url('/login');
   } */
-  
- 
-    $scope.edit_setting = function() {
-		 $location.url('/edit_setting');
-    }
-  
-  
-  
   $("#wrapper").show();
   $("#CreateAccount").hide();
   $("#SideHeader").show();
@@ -21,10 +13,13 @@ foodMeApp.controller('SettingController',
   $("#notification").show();
   $("#page-wrapper").css("margin-left", "");
   
-/*  $scope.myFunction = function() {
-		 $location.url('/login');
+  $scope.save_details = function() {
+		 alert("Details saved successfully");
+		 $location.url('/setting');
     }
  
+ 
+ /*
 $scope.myFunction1 = function() {
 		 $location.url('/register');
     }

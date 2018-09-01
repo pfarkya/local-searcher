@@ -5,8 +5,8 @@ foodMeApp.controller('SearchController',
   /* if (!customer.address) {
     $location.url('/login');
   } */
-      alert("SearchController");
-  
+    ///$("#wrapper").hide();
+
   
  $scope.myFunction = function() {
 		 $location.url('/login');

@@ -29,9 +29,25 @@ foodMeApp.config(function($routeProvider) {
         controller: 'CheckoutController',
         templateUrl: 'views/checkout.html'
       }).
+	   when('/edit_profile', {
+        controller: 'EditProfileController',
+        templateUrl: 'views/edit_profile.html'
+      }).
 	  when('/profile', {
         controller: 'ProfileController',
         templateUrl: 'views/profile.html'
+      }).
+	  when('/edit_setting', {
+        controller: 'Edit_SettingController',
+        templateUrl: 'views/edit_setting.html'
+      }).
+	  when('/add_product_detail', {
+        controller: 'AddProductDetailController',
+        templateUrl: 'views/add_product_detail.html'
+      }).
+	  when('/edit_product_detail', {
+        controller: 'EditProductDetailController',
+        templateUrl: 'views/edit_product_detail.html'
       }).
 	  when('/forgot_password', {
         controller: 'ForgotPasswordController',

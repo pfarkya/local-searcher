@@ -2,7 +2,12 @@
 
 foodMeApp.controller('ForgotPasswordController',
     function ForgotPasswordController($scope, customer, $location, Restaurant) {
-alert("ForgotPsswordController");
+
+	$("#Header").hide();
+	$("#SideHeader").hide();
+	$("#page-wrapper").css("margin-left", "0");
+	
+	
   /* if (!customer.address) {
     $location.url('/login');
   } */
