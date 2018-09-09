@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var Cloudant = require('@cloudant/cloudant')
 var cloudant = new Cloudant({url:'https://aab3394d-785a-412a-b0f9-0b1b1481931f-bluemix:af6352acd3c91c5fa1c9e31e963b3bc851d3c7f5cb0e3779ece2a03088e440a9@aab3394d-785a-412a-b0f9-0b1b1481931f-bluemix.cloudant.com'})
 var usersDb
@@ -35,6 +36,7 @@ var indexify = function() {
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(express.static('public'));
+app.use(session({secret: "Your secret key"}));
 
 app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
@@ -62,6 +64,7 @@ app.post('/add_user', urlencodedParser, function(req,res){
           console.log('[usersDb.insert] ', err.message)
           res.status(500).send({error:"try again"})
         }
+        req.session.user = body;
         res.status(201).send(body)
       })
     } else {
@@ -69,6 +72,36 @@ app.post('/add_user', urlencodedParser, function(req,res){
     }
   });
 })
+
+app.post('/login', urlencodedParser, function(req,res){
+  usersDb.find({selector:{email:req.body.email}}, function(er, result) {
+    if (er) {
+      return res.send(er)
+    }
+
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+      if (result.docs[0].password === req.body.password) {
+        req.session.user = result.docs[0]
+        res.status(200).send({id: result.docs[0]._id, message:'successfully login'})
+      } else {
+        res.status(401).send({message:'Invalid password'})
+      }
+
+    }
+  });
+});
+
+app.get('/logout', function(req, res){
+   req.session.destroy(function(){
+      res.send(200)({message:'successfully logout'});
+   });
+});
 
 const PORT = process.env.PORT || 8080;
 
