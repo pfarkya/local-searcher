@@ -1,13 +1,94 @@
 <!DOCTYPE html>
 <html>
 
+
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script>
+jQuery(document).ready(function() {
+        
+	jQuery('.carousel[data-type="multi"] .item').each(function(){
+		var next = jQuery(this).next();
+		if (!next.length) {
+			next = jQuery(this).siblings(':first');
+		}
+		next.children(':first-child').clone().appendTo(jQuery(this));
+	  
+		for (var i=0;i<2;i++) {
+			next=next.next();
+			if (!next.length) {
+				next = jQuery(this).siblings(':first');
+			}
+			next.children(':first-child').clone().appendTo($(this));
+		}
+	});
+        
+});
+</script>
+
 <head>
 
 <style>
-.preview > div {
-  display: inline-block;
-  text-align:center;
-  padding: 3px;
+.carousel-control.left, .carousel-control.right {
+	background-image:none;
+}
+
+.img-responsive{
+	width:100%;
+	height:auto;
+}
+
+@media (min-width: 992px ) {
+	.carousel-inner .active.left {
+		left: -25%;
+	}
+	.carousel-inner .next {
+		left:  25%;
+	}
+	.carousel-inner .prev {
+		left: -25%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 991px ) {
+	.carousel-inner .active.left {
+		left: -33.3%;
+	}
+	.carousel-inner .next {
+		left:  33.3%;
+	}
+	.carousel-inner .prev {
+		left: -33.3%;
+	}
+	.active > div:first-child {
+		display:block;
+	}
+	.active > div:first-child + div {
+		display:block;
+	}
+	.active > div:last-child {
+		display:none;
+	}
+}
+
+@media (max-width: 767px) {
+	.carousel-inner .active.left {
+		left: -100%;
+	}
+	.carousel-inner .next {
+		left:  100%;
+	}
+	.carousel-inner .prev {
+		left: -100%;
+	}
+	.active > div {
+		display:none;
+	}
+	.active > div:first-child {
+		display:block;
+	}
 }
 
 .preview1{
@@ -37,65 +118,73 @@ background-color:gray;
         <div class="wrapper wrapper-content animated fadeInRight ecommerce">
 
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="tabs-container">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="ecommerce_product.html#tab-1"> Add Image</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="tab-1" class="tab-pane active">
-                               	
-										<div class="panel-body">
-											<div  align="center"><div class="preview1"  ></div></div>
-												<button  class="btn btn-primary block  m-b" onclick="document.getElementById('gallery-photo-add').click()">Add Image</button>
-											<input type="file" multiple id="gallery-photo-add" style="visibility:hidden;">
-											<div class="gallery" align="center" style=" overflow:auto;"></div>
+			<div class="tabs-container">
+			
+				<div class="panel-body">
+                <div class="col-sm-6">
+				
+					<div  align="center"><i class="preview1 fa fa-sign-in big-icon"></i></div>
+					
+					
+																	
+													
+<div class=" text-center">
+<div class="carousel slide row" data-ride="carousel" data-type="multi" data-interval="2000" id="fruitscarousel">
 
-										</div>
-										<!-- <div class="panel-body">
-												Preview
-											<div class="preview"></div>
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class=" col-xs-12"><a href=""><div class="feed-element col-md-3">
+														<a href="" class="">
+															<img alt="image" class="img-circle" src="img/customer_bkg.jpg">
+														</a>
+														
+													</div></a></div>
+        </div>
 
-											<form action="#" method="POST" enctype="multipart/form-data">
-												<input type="file" name="file1" >
-												<input type="submit">
-											</form>
-										</div> -->
-                                </div>
+    </div>
+
+    <a class="left carousel-control" href="#fruitscarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+    <a class="right carousel-control" href="#fruitscarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a> 
+</div>
+</div>
+				
+					
+					
+					
+					
+					
+					<div align="center" style="padding-top:10px;">
+						<div style="height:80px; width:110px; padding:3px; background-color:grey;display: inline-block;" > </div>
+						<div style="height:80px; width:110px; padding:3px; background-color:grey;display: inline-block;" > </div>
+						<div style="height:80px; width:110px; padding:3px; background-color:grey;display: inline-block;" > </div>
+						<div style="height:80px; width:110px; padding:3px; background-color:grey;display: inline-block;" > </div>
+						<div style="height:80px; width:110px; padding:3px; background-color:grey;display: inline-block;" > </div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<fieldset class="form-horizontal">
+							<div class="form-group"><label class="col-sm-5 control-label">Product Name:</label>
+								<div class="col-sg-7"><p class="form-control-static">Product name</p></div>
+							</div>
+							<div class="form-group"><label class="col-lg-5 control-label">Static control</label>
+                                <div class="col-sg-7"><p class="form-control-static">email@example.com</p></div>
                             </div>
-                    </div>
+							<div class="form-group"><label class="col-sm-5 control-label">Product Price:</label>
+								<div class="col-sg-7"><p class="form-control-static">Product name</p></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Tag Title:</label>
+								<div class="col-sg-7"><p class="form-control-static">Finddy</p></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Product Description:</label>
+								<div class="col-sg-7"><p class="form-control-static">Sheets containing Lorem</p></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Meta Tag Keywords:</label>
+								<div class="col-sg-7"><p class="form-control-static">Lorem, Ipsum, has, been</p></div>
+							</div>
+					</fieldset>
+					<button ng-click="edit_details()" style="width:30%" class="btn btn-primary  pull-right" ><strong>Edit Details</strong></button>
+				</div>
                 </div>
-				<div class="col-lg-6">
-                    <div class="tabs-container">
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="ecommerce_product.html#tab-1"> Product info</a></li>
-                            </ul>
-                            <div class="tab-content">
-                                <div id="tab-1" class="tab-pane active">
-                                    <div class="panel-body">
-
-                                        <fieldset class="form-horizontal">
-                                            <div class="form-group"><label class="col-sm-4 control-label">Product Name:</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" value="Product name" readonly></div>
-                                            </div>
-                                            <div class="form-group"><label class="col-sm-4 control-label">Product Price:</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" value="$160.00" readonly></div>
-                                            </div>
-                                            <div class="form-group"><label class="col-sm-4 control-label">Tag Title:</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" value="Finddy" readonly></div>
-                                            </div>
-                                            <div class="form-group"><label class="col-sm-4 control-label">Product Description:</label>
-                                                <div class="col-sm-8"><input type="textarea" class="form-control" value="Sheets containing Lorem" readonly></div>
-                                            </div>
-                                            <div class="form-group"><label class="col-sm-4 control-label">Meta Tag Keywords:</label>
-                                                <div class="col-sm-8"><input type="text" class="form-control" value="Lorem, Ipsum, has, been" readonly></div>
-                                            </div>
-                                        </fieldset>
-										<button ng-click="edit_details()" class="btn btn-primary block m-b pull-right" ><strong>Edit Details</strong></button>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
                 </div>
             </div>
 
@@ -112,44 +201,6 @@ background-color:gray;
 </div>
  
 <script>	
-/*	$(function () {
-		$("input[name=file1]").previewimage({
-			div: ".preview",
-			imgwidth: 180,
-			imgheight: 150,
-			delname:"Delete",
-			imgsize:"",
-			imgdel:!0,
-			ext:"jpg/jpeg/png"
-			
-		});
-	});*/
-	
-	$(function() {
-    // Multiple images preview in browser
-    var imagesPreview = function(input, placeToInsertImagePreview) {
-
-        if (input.files) {
-            var filesAmount = input.files.length;
-
-            for (i = 0; i < filesAmount; i++) {
-                var reader = new FileReader();
-
-                reader.onload = function(event) {
-                    $($.parseHTML('<img style="height:100px; width:130px; padding:3px;" >')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                }
-
-                reader.readAsDataURL(input.files[i]);
-            }
-        }
-
-    };
-
-    $('#gallery-photo-add').on('change', function() {
-        imagesPreview(this, 'div.gallery');
-    });
-});
-	
 	
 </script>
  
