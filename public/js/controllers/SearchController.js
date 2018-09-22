@@ -20,7 +20,9 @@ $scope.myFunction1 = function() {
 		 $location.url('/search');
     }
  
- 
+  $scope.profile = function() {
+		 $location.url('/profile');
+    }
  
 
 });

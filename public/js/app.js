@@ -61,8 +61,8 @@ foodMeApp.config(function($routeProvider) {
         controller: 'RegisterController',
         templateUrl: 'views/register.html'
       }).
-      when('/who-we-are', {
-        templateUrl: 'views/who-we-are.html'
+      when('/dummy', {
+        templateUrl: 'views/dummy.html'
       }).
       when('/how-it-works', {
         templateUrl: 'views/how-it-works.html'
