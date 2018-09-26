@@ -108,9 +108,9 @@
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0" id="Header" >
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " ><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="search_results.html">
+            <form role="search" class="navbar-form-custom" action="search.html">
                 <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                    <input type="text" placeholder="Search for something..."  ng-click="searchpage()" class="form-control" name="top-search" id="top-search">
                 </div>
             </form>
         </div>
@@ -337,7 +337,7 @@
                                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 <!--                                             <i class="fa fa-clock-o modal-icon"></i> -->
                                             <h4 id="popupheader" class="modal-title">Dummy Modal</h4>
-                                            <small>Write somthing here</small>
+                                            <small id="heading" >Write somthing here</small>
                                         </div>
                                         <div class="modal-body">
                                              
