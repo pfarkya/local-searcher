@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body class="white-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+                <img alt="image"  src="img/logo.png">
+            </div>
+
+            <h3>Register to Finddy</h3>
+
+            <form class="m-t" role="form">
+                <div class="form-group" >
+                    <input type="text" class="form-control" placeholder="Name" required ng-model="formdata.name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" required ng-model="formdata.email">
+                </div>
+				 <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="Mobile" required="" ng-model="formdata.phoneNumber">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="" ng-model="formdata.password">
+                </div>
+				<div class="form-group">
+                    <input type="password" class="form-control" placeholder="Confirm Password" required="" ng-model="formdata.confirmPassword">
+                </div>
+				<!-- <div class="form-group"> -->
+                        <!-- <label> <input name="usertype" type="radio"><i class="fa fa-user"></i>  As User </label> -->
+                        <!-- <label style="padding-left:20px;"> <input name="usertype" type="radio"><i class="fa fa-users" ></i>  Business User </label> -->
+                <!-- </div> -->
+                <div class="form-group">
+                        <div class="checkbox"><label> <input type="checkbox"><i></i>  Agree the terms and policy </label></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b" ng-click="registerUser()"   >Register</button>
+
+                <p class="text-muted text-center"><small>Already have an account?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="" ng-click="loginpage()"  >Login</a>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function(){
+
+        });
+    </script>
+</body>
+
+</html>

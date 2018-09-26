@@ -1,0 +1,5 @@
+---
+applications:
+- name: khoji
+  memory: 256M
+  instances: 1

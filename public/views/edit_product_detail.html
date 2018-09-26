@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+.preview > div {
+  display: inline-block;
+  text-align:center;
+  padding: 3px;
+}
+
+.preview1{
+
+height:200px;
+width:300px;
+background-color:gray;
+
+}
+
+</style>
+
+</head>
+
+
+
+<body>
+
+<div id="wrapper">
+
+    <div  class="gray-bg">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Edit Details</h2>
+            </div>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+            <div class="row">
+			<div class="tabs-container">
+			
+				<div class="panel-body">
+                <div class="col-lg-6">
+					<div  align="center"><div class="preview1"  ></div></div>
+							<button  class="btn btn-primary block  m-b" onclick="document.getElementById('gallery-photo-add').click()">Add Image</button>
+							<input type="file" multiple id="gallery-photo-add" style="visibility:hidden;">
+							<div class="gallery" align="center" style=" overflow:auto;"></div>
+							<div align="center"  >
+								<h3 >Upload Images</h3>
+							</div>
+						<!-- <div class="panel-body">
+								Preview
+							<div class="preview"></div>
+
+							<form action="#" method="POST" enctype="multipart/form-data">
+								<input type="file" name="file1" >
+								<input type="submit">
+							</form>
+						</div> -->
+				</div>
+				<div class="col-lg-6">
+					<fieldset class="form-horizontal">
+							<div class="form-group"><label class="col-sm-5 control-label">Product Name:</label>
+								<div class="col-sm-7"><input type="text" class="form-control" value="Product name" ></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Product Price:</label>
+								<div class="col-sm-7"><input type="text" class="form-control" value="$160.00" ></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Tag Title:</label>
+								<div class="col-sm-7"><input type="text" class="form-control" value="Finddy" ></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Product Description:</label>
+								<div class="col-sm-7"><input type="textarea" class="form-control" value="Sheets containing Lorem" ></div>
+							</div>
+							<div class="form-group"><label class="col-sm-5 control-label">Meta Tag Keywords:</label>
+								<div class="col-sm-7"><input type="text" class="form-control" value="Lorem, Ipsum, has, been" ></div>
+							</div>
+					</fieldset>
+					<button ng-click="save_details()" style="width:30%" class="btn btn-primary pull-right" ><strong>Save Details</strong></button>
+				</div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+		<div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<script>	
+/*	$(function () {
+		$("input[name=file1]").previewimage({
+			div: ".preview",
+			imgwidth: 180,
+			imgheight: 150,
+			delname:"Delete",
+			imgsize:"",
+			imgdel:!0,
+			ext:"jpg/jpeg/png"
+			
+		});
+	});*/
+	
+	$(function() {
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img style="height:100px; width:130px; padding:3px;" >')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function() {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+	
+	
+</script>
+ 
+</body>
+
+</html>
+
