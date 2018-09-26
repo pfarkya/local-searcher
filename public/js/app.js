@@ -5,15 +5,11 @@ var foodMeApp = angular.module('foodMeApp', ['ngResource']);
 foodMeApp.config(function($routeProvider) {
 
   $routeProvider.
-       when('/login', {
-        controller: 'LoginController',
-        templateUrl: 'views/login.html'
-      }).
-      when('/login', {
-        controller: 'LoginController',
-        templateUrl: 'views/login.html'
-      }).
-	when('/setting', {
+    when('/login', {
+      controller: 'LoginController',
+      templateUrl: 'views/login.html'
+    }).
+	  when('/setting', {
         controller: 'SettingController',
         templateUrl: 'views/setting.html'
       }).	  

@@ -10,10 +10,10 @@
 
             <form class="m-t" role="form" >
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Username" >
+                    <input type="email" class="form-control" placeholder="Email" ng-model="formdata.email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" >
+                    <input type="password" class="form-control" placeholder="Password" ng-model="formdata.password">
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b"  ng-click="login()"  >Login</button>
 
@@ -23,6 +23,3 @@
             </form>
         </div>
     </div>
-
-
-
