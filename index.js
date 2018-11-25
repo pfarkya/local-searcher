@@ -21,6 +21,25 @@ cloudant.db.get('users',function(err,data){
   }
 })
 
+var productsDb
+
+cloudant.db.get('productsandservices',function(err,data){
+  if(err && err.error == 'not_found') {
+    cloudant.db.create('productsandservices',function(err1,data1){
+      if(err1) {
+        console.log(err)
+      } else {
+        productsDb = cloudant.db.use('productsandservices')
+        indexifyProductDb()
+      }
+    })
+  } else {
+    productsDb = cloudant.db.use('productsandservices')
+    indexifyProductDb()
+  }
+})
+
+
 
 var indexify = function() {
   var email_index = {name:'email', type:'json', index:{fields:['email']}}
@@ -36,6 +55,28 @@ var indexify = function() {
       }
 
       console.log('The database has %d indexes', result.indexes.length);
+      for (var i = 0; i < result.indexes.length; i++) {
+        console.log('  %s (%s): %j', result.indexes[i].name, result.indexes[i].type, result.indexes[i].def);
+      }
+    });
+  });
+
+}
+
+var indexifyProductDb = function() {
+  var email_index = {name:'providerId', type:'json', index:{fields:['providerId']}}
+  productsDb.index(email_index, function(er, response) {
+    if (er) {
+      console.log(er)
+    }
+    console.log('Index creation result: %s', response.indexes);
+    console.log('Index creation result: %s', response.result);
+    productsDb.index(function(er, result) {
+      if (er) {
+        throw er;
+      }
+
+      console.log('productsDb database has %d indexes', result.indexes.length);
       for (var i = 0; i < result.indexes.length; i++) {
         console.log('  %s (%s): %j', result.indexes[i].name, result.indexes[i].type, result.indexes[i].def);
       }
@@ -92,8 +133,84 @@ app.post('/add_user', function(req,res){
   });
 })
 
+app.put('/updateProfile', function(req, res) {
+  usersDb.find({selector:{_id:req.body._id}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+
+      usersDb.insert(Object.assign({},req.body, {_rev:result.docs[0]._rev}), function(err, body, header) {
+        if (err) {
+          return res.status(500).send(err)
+        }
+        return res.status(200).send({_rev: body._rev})
+      })
+    }
+  })
+})
+
+app.put('/updateProducts', function(req, res) {
+  productsDb.find({selector:{_id:req.body._id}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+
+      productsDb.insert(Object.assign({},req.body, {_rev:result.docs[0]._rev}), function(err, body, header) {
+        if (err) {
+          return res.status(500).send(err)
+        }
+        return res.status(200).send({_rev: body._rev})
+      })
+    }
+  })
+})
+
+app.get('/getProfileProducts', function() {
+  productsDb.find({selector:{providerId:req.body.providerId}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+      return res.status(200).send(result.docs)
+    }
+  })
+})
+
+app.post('/addProducts', function(req, res) {
+  productsDb.find({selector:{providerId:req.body.providerId, name: req.body.name}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+    } else {
+      res.status(409).send({message:"already producct exist please update same"})
+    }
+  });
+})
+
 app.post('/login', function(req,res){
-  
+
   usersDb.find({selector:{email:req.body.email}}, function(er, result) {
     if (er) {
       return res.send(er)
