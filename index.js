@@ -28,16 +28,33 @@ var indexify = function() {
     if (er) {
       console.log(er)
     }
-
+    console.log('Index creation result: %s', response.indexes);
     console.log('Index creation result: %s', response.result);
+    usersDb.index(function(er, result) {
+      if (er) {
+        throw er;
+      }
+
+      console.log('The database has %d indexes', result.indexes.length);
+      for (var i = 0; i < result.indexes.length; i++) {
+        console.log('  %s (%s): %j', result.indexes[i].name, result.indexes[i].type, result.indexes[i].def);
+      }
+    });
   });
+
 }
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.use(express.static('public'));
+app.use(urlencodedParser)
+app.use(bodyParser.json())
 app.use(session({secret: "Your secret key"}));
-
+app.use(function(req,res,next) {
+  console.log('Path',req.path)
+  console.log(req.session);
+  next()
+})
+app.use(express.static('public'));
 app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
@@ -48,12 +65,14 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    res.end(JSON.stringify(response));
 })
 
-app.post('/add_user', urlencodedParser, function(req,res){
+app.post('/add_user', function(req,res){
+  console.log("asdas",req)
   usersDb.find({selector:{email:req.body.email}}, function(er, result) {
     if (er) {
       res.send(er)
     }
-
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
     console.log('Found %d documents with name Alice', result.docs.length);
     for (var i = 0; i < result.docs.length; i++) {
       console.log('  Doc id: %s', result.docs[i]._id);
@@ -73,7 +92,8 @@ app.post('/add_user', urlencodedParser, function(req,res){
   });
 })
 
-app.post('/login', urlencodedParser, function(req,res){
+app.post('/login', function(req,res){
+  
   usersDb.find({selector:{email:req.body.email}}, function(er, result) {
     if (er) {
       return res.send(er)
@@ -81,14 +101,14 @@ app.post('/login', urlencodedParser, function(req,res){
 
     console.log('Found %d documents with name Alice', result.docs.length);
     for (var i = 0; i < result.docs.length; i++) {
-      console.log('  Doc id: %s', result.docs[i]._id);
+      //console.log('  Doc id: %s', result.docs[i]._id);
     }
     if(result.docs.length === 0) {
       res.status(404).send({message:'no user found'})
     } else {
       if (result.docs[0].password === req.body.password) {
         req.session.user = result.docs[0]
-        res.status(200).send({id: result.docs[0]._id, message:'successfully login'})
+        res.status(200).send({id: result.docs[0]._id, message:'successfully login!',userdetails : result.docs[0]})
       } else {
         res.status(401).send({message:'Invalid password'})
       }
@@ -99,7 +119,7 @@ app.post('/login', urlencodedParser, function(req,res){
 
 app.get('/logout', function(req, res){
    req.session.destroy(function(){
-      res.send(200)({message:'successfully logout'});
+      res.status(200).send({message:'successfully logout'});
    });
 });
 
