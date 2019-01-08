@@ -1,0 +1,65 @@
+<div class="">
+        <div  layout="column" layout-align="center center" layout-fill="layout-fill">
+          <div layout="column" class="md-whiteframe-z1">
+          <md-toolbar class="md-toolbar-tools">
+            <h2>Registration Form</h2>
+          </md-toolbar>
+            <md-content layout-padding>
+              <form name="regForm" role="form" submit="ctrl.registerUser()">
+                  <md-input-container class="md-icon-float md-block">
+                      <label>Phone Number</label>
+                      <input required type="number" name="phoneNumber" ng-model="ctrl.user.phoneNumber">
+                      <div ng-messages="regForm.uid.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div >The user ID must 9 digit number.And the remainder of sum of first 8 digits should equal to the 9th digit.</div>
+                      </div>
+                  </md-input-container>
+
+                  <md-input-container class="md-icon-float md-block">
+                      <label>User Name: </label>
+                      <input required md-maxlength="35" type="text" name="username" ng-model="ctrl.user.name">
+                      <div ng-messages="regForm.username.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="md-maxlength">The user name must be less than 35 characters long.</div>
+                      </div>
+                  </md-input-container>
+
+                  <md-input-container class="md-block">
+                      <label>Email</label>
+                      <input required type="email" name="useremail" ng-model="ctrl.user.email"
+                             minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+                      <div ng-messages="regForm.useremail.$error" role="alert">
+                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                          Your email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                      </div>
+                  </md-input-container>
+
+                  <md-input-container class="md-icon-float md-block">
+                      <label>Password: </label>
+                      <input required minlength="8" my-password type="password" name="password" ng-model="ctrl.user.password">
+                      <div ng-messages="regForm.password.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="minlength">The password must be more than 8 characters long.</div>
+                        <div ng-message="pass">The password must contain at least one letter and one digit.</div>
+                      </div>
+                  </md-input-container>
+
+                  <md-input-container class="md-icon-float md-block">
+                      <label>Confirm Password: </label>
+                      <input required type="password" name="verifyPassword" ng-model="ctrl.user.verifyPassword"
+                              compare-to="ctrl.user.password"/>
+                      <div ng-messages="regForm.verifyPassword.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="compareTo">Must match the previous entry</div>
+                      </div>
+                  </md-input-container>
+
+                  <md-button type="submit" ng-click="ctrl.registerUser()"  ng-disabled="regForm.$invalid">Submit</md-button>
+
+              </form>
+            </md-content>
+        </div>
+    </div>
+</div>

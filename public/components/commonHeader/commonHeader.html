@@ -1,0 +1,37 @@
+<div class="header"  layout="row" layout-align="start none">
+    <div class="brandName" flex layout="row" layout-align="start center">
+     <div>Finddy</div>
+    </div>
+
+    <div ng-if="ctrl.loginService.isLogin()" class="" layout="row" layout-align="end none" flex="50">
+      <div class="tabable headerRight" layout="row" layout-align="cente center">
+        <!-- its for profile -->
+        <div>Enterprises</div>
+
+      </div>
+      <div class="tabable headerRight" layout="row" layout-align="cente center">
+        <!-- its for profile -->
+        <div>Account Detail</div>
+
+      </div>
+      <div class="tabable headerRight" layout="row" layout-align="cente center">
+        <!-- its for profile -->
+        <div ui-sref="khoziApp.profile">Profile <i class="fas fa-user"></i></div>
+
+      </div>
+      <div class="tabable headerRight" layout="row" layout-align="cente center">
+        <!-- its for profile -->
+        <div ng-click="ctrl.logout()">logout</div>
+
+      </div>
+    </div>
+
+    <div ng-if="!ctrl.loginService.isLogin()" class="" layout="row" layout-align="end none" flex="50">
+      <div class="headerRight" layout="row" layout-align="cente center">
+        <!-- its for login button -->
+        <div><a ui-sref="khojiApp.login"> Login</a> /
+        <a ui-sref="khojiApp.register"> Register</a></div>
+
+      </div>
+    </div>
+</div>

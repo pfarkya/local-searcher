@@ -4,6 +4,13 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var Cloudant = require('@cloudant/cloudant')
 var cloudant = new Cloudant({url:'https://aab3394d-785a-412a-b0f9-0b1b1481931f-bluemix:af6352acd3c91c5fa1c9e31e963b3bc851d3c7f5cb0e3779ece2a03088e440a9@aab3394d-785a-412a-b0f9-0b1b1481931f-bluemix.cloudant.com'})
+
+/*
+it is assosiated with user / his roles / his enterprises/
+profile attributes name/ link to accounts/ pic married status gender date of birth etc
+accounts attributes password / emails / numbers /
+
+*/
 var usersDb
 cloudant.db.get('users',function(err,data){
   if(err && err.error == 'not_found') {
@@ -21,6 +28,10 @@ cloudant.db.get('users',function(err,data){
   }
 })
 
+/*
+product DB is DB associated to have users related to any enterprise its owner its detail
+all other places its ID refer as productId
+*/
 var productsDb
 
 cloudant.db.get('productsandservices',function(err,data){
@@ -36,6 +47,28 @@ cloudant.db.get('productsandservices',function(err,data){
   } else {
     productsDb = cloudant.db.use('productsandservices')
     indexifyProductDb()
+  }
+})
+
+/*
+Enterprise DB is DB associated to have users related to that enterprise its owner its detail
+all other places its ID refer as enterpriseId
+*/
+var enterpriseDb
+
+cloudant.db.get('enterprises',function(err,data){
+  if(err && err.error == 'not_found') {
+    cloudant.db.create('enterprises',function(err1,data1){
+      if(err1) {
+        console.log(err)
+      } else {
+        enterpriseDb = cloudant.db.use('enterprises')
+        indexifyEnterpriseDb()
+      }
+    })
+  } else {
+    enterpriseDb = cloudant.db.use('enterprises')
+    indexifyEnterpriseDb()
   }
 })
 
@@ -64,7 +97,7 @@ var indexify = function() {
 }
 
 var indexifyProductDb = function() {
-  var email_index = {name:'providerId', type:'json', index:{fields:['providerId']}}
+  var email_index = {name:'providerId', type:'json', index:{fields:['providerId','name','category','enterpriseId']}}
   productsDb.index(email_index, function(er, response) {
     if (er) {
       console.log(er)
@@ -72,6 +105,28 @@ var indexifyProductDb = function() {
     console.log('Index creation result: %s', response.indexes);
     console.log('Index creation result: %s', response.result);
     productsDb.index(function(er, result) {
+      if (er) {
+        throw er;
+      }
+
+      console.log('productsDb database has %d indexes', result.indexes.length);
+      for (var i = 0; i < result.indexes.length; i++) {
+        console.log('  %s (%s): %j', result.indexes[i].name, result.indexes[i].type, result.indexes[i].def);
+      }
+    });
+  });
+
+}
+
+var indexifyEnterpriseDb = function() {
+  var email_index = {name:'ownerId', type:'json', index:{fields:['ownerId','name','category']}}
+  enterpriseDb.index(email_index, function(er, response) {
+    if (er) {
+      console.log(er)
+    }
+    console.log('Index creation result: %s', response.indexes);
+    console.log('Index creation result: %s', response.result);
+    enterpriseDb.index(function(er, result) {
       if (er) {
         throw er;
       }
@@ -96,6 +151,10 @@ app.use(function(req,res,next) {
   next()
 })
 app.use(express.static('public'));
+app.use(express.static('node_modules'));
+app.get('/session', function(req,res) {
+  res.send(req.session)
+})
 app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    response = {
@@ -234,7 +293,7 @@ app.post('/login', function(req,res){
   });
 });
 
-app.get('/logout', function(req, res){
+app.post('/logout', function(req, res){
    req.session.destroy(function(){
       res.status(200).send({message:'successfully logout'});
    });
