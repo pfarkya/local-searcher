@@ -11,6 +11,7 @@ angular.module('khoziApp')
      }).then(function(response) {
        alert("successfully login");
        login.setLoggedIn(true);
+       login.setUserDetail(response.data)
        $state.go('khojiApp');
      }, function(response) {
        console.log("status",response.status)

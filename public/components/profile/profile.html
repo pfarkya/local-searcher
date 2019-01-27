@@ -1,0 +1,32 @@
+<div class="profile">
+  <div class="">
+    <div class="">
+      User Profile
+    </div>
+    <button ng-if="ctrl.editMode == false" type="button" name="button" ng-click="ctrl.editProfile()">Edit Profile</button>
+    <button ng-if="ctrl.editMode == true" type="button" name="button" ng-click="ctrl.updateProfile()">Update Profile</button>
+    <button ng-if="ctrl.editMode == true" type="button" name="button" ng-click="ctrl.cancelEditProfile()">Cancel</button>
+  </div>
+  <div ng-if="ctrl.editMode == false" class="view">
+      <div>
+        User Name: <span>{{ctrl.user.name}}</span>
+      </div>
+      <div>
+        Email: <span>{{ctrl.user.email}}</span>
+      </div>
+  </div>
+  <div ng-if="ctrl.editMode == true" class="view">
+    <form name="userForm">
+      <md-content layout="column" class="md-padding">
+        <md-input-container>
+          <label>Email</label>
+          <input required type="text" ng-model="ctrl.editedUser.email" name="email" />
+        </md-input-container>
+        <md-input-container>
+          <label>Username</label>
+          <input required type="text" ng-model="ctrl.editedUser.name" name="name" />
+        </md-input-container>
+      </md-content>
+    </form>
+  </div>
+</div>

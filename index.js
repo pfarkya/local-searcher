@@ -192,6 +192,32 @@ app.post('/add_user', function(req,res){
   });
 })
 
+app.post('/add_enterprise', function(req,res){
+  console.log("asdas",req)
+  enterpriseDb.find({selector:{name:req.body.name, ownerId: req.session.user._id}}, function(er, result) {
+    if (er) {
+      res.send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      enterpriseDb.insert(Object.assign({},req.body,{ownerId: req.session.user._id}),function(errr, body, headers) {
+        if (errr) {
+          console.log('[usersDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+    } else {
+      res.status(409).send()
+    }
+  });
+})
+
 app.put('/updateProfile', function(req, res) {
   usersDb.find({selector:{_id:req.body._id}}, function(er, result) {
     if (er) {
@@ -200,14 +226,37 @@ app.put('/updateProfile', function(req, res) {
     if(result.docs.length === 0) {
       res.status(404).send({message:'no user found'})
     } else {
-
+      console.log("updating Data",req.body)
       usersDb.insert(Object.assign({},req.body, {_rev:result.docs[0]._rev}), function(err, body, header) {
         if (err) {
           return res.status(500).send(err)
         }
-        return res.status(200).send({_rev: body._rev})
+        console.log(body)
+        return res.status(200).send(body)
       })
     }
+  })
+})
+
+app.get('/getProfile', function(req, res) {
+  usersDb.find({selector:{_id:req.session.user._id}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      return res.status(404).send({message:'no user found'})
+    } else {
+      return res.status(200).send(result.docs[0])
+    }
+  })
+})
+
+app.get('/getEnterprises', function(req, res) {
+  enterpriseDb.find({selector:{ownerId:req.session.user._id}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    return res.status(200).send(result.docs)
   })
 })
 
@@ -284,7 +333,7 @@ app.post('/login', function(req,res){
     } else {
       if (result.docs[0].password === req.body.password) {
         req.session.user = result.docs[0]
-        res.status(200).send({id: result.docs[0]._id, message:'successfully login'})
+        res.status(200).send(result.docs[0])
       } else {
         res.status(401).send({message:'Invalid password'})
       }

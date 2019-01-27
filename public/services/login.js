@@ -1,6 +1,7 @@
 angular.module('khoziApp').service('login',['$http',function($http){
   let self = this
-  this.loggedIn = false
+  self.loggedIn = false
+  self.user = {}
   self.isLogin = function() {
     return self.loggedIn
   }
@@ -8,6 +9,34 @@ angular.module('khoziApp').service('login',['$http',function($http){
     self.loggedIn = value
   }
 
+  self.setUserDetail = function(value) {
+    console.log(value)
+    self.user = value
+  }
+
+  self.getUserDetail = function(value) {
+    return self.user
+  }
+
+  self.getProfile = function(){
+    return $http({
+      method : "GET",
+      url : "/getProfile",
+    }).then(function(response) {
+      if(response.data) {
+        self.setUserDetail(response.data)
+      }
+    }, function(response) {
+      console.log("something wrong!")
+    });
+  }
+
+  self.getEnterprises= function() {
+    return $http({
+      method : "GET",
+      url : "/getEnterprises",
+    })
+  }
   self.checkSessionExist = function() {
     $http({
       method : "GET",
