@@ -1,37 +1,43 @@
-<div class="header"  layout="row" layout-align="start none">
-    <div class="brandName" flex layout="row" layout-align="start center">
-     <div>Finddy</div>
+
+<md-toolbar class="md-hue-2">
+  <div class="md-toolbar-tools">
+
+    <md-button class="md-icon-button" ng-if="ctrl.loginService.isLogin()" aria-label="sidenav">
+      <md-icon md-font-icon="fa fa-bars"></md-icon>
+    </md-button>
+
+    <h2 class="spacer">Finddy</h2>
+
+    <md-menu ng-if="ctrl.loginService.isLogin()">
+      <md-button class="md-icon-button" ng-click="$mdOpenMenu()" aria-label="leftmenu">
+          <md-icon md-font-icon="fa fa-user-circle"></md-icon>
+      </md-button>
+      <md-menu-content width="3" ng-mouseleave="$mdMenu.close()">
+        <md-menu-item>
+          <md-button ui-sref="khojiApp.profile"><md-icon md-font-icon="fa fa-user"></md-icon>profile</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+          <md-button><md-icon md-font-icon="fa fa-file"></md-icon>Account Details</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+        <md-button ui-sref="khojiApp.enterprises"><md-icon md-font-icon="fa fa-elementor"></md-icon>Enterprises</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+        <md-button ng-click="ctrl.logout()"><md-icon md-font-icon="fa fa-sign-out-alt"></md-icon>logout</md-button>
+        </md-menu-item>
+
+      </md-menu-content>
+      </md-menu>
+
+      <div ng-if="!ctrl.loginService.isLogin()">
+        <md-button ui-sref="khojiApp.register">Register</md-button>
+        <md-button ui-sref="khojiApp.login">login</md-button>
+      </div>
+
+
     </div>
-
-    <div ng-if="ctrl.loginService.isLogin()" class="" layout="row" layout-align="end none" flex="50">
-      <div class="tabable headerRight" layout="row" layout-align="cente center">
-        <!-- its for profile -->
-        <div ui-sref="khojiApp.enterprises">Enterprises</div>
-
-      </div>
-      <div class="tabable headerRight" layout="row" layout-align="cente center">
-        <!-- its for profile -->
-        <div>Account Detail</div>
-
-      </div>
-      <div class="tabable headerRight" layout="row" layout-align="cente center">
-        <!-- its for profile -->
-        <div ui-sref="khojiApp.profile">Profile <i class="fas fa-user"></i></div>
-
-      </div>
-      <div class="tabable headerRight" layout="row" layout-align="cente center">
-        <!-- its for profile -->
-        <div ng-click="ctrl.logout()">logout</div>
-
-      </div>
-    </div>
-
-    <div ng-if="!ctrl.loginService.isLogin()" class="" layout="row" layout-align="end none" flex="50">
-      <div class="headerRight" layout="row" layout-align="cente center">
-        <!-- its for login button -->
-        <div><a ui-sref="khojiApp.login"> Login</a> /
-        <a ui-sref="khojiApp.register"> Register</a></div>
-
-      </div>
-    </div>
-</div>
+</md-toolbar>
+<br>
