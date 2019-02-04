@@ -40,3 +40,9 @@
 .product-card {
   width: 400px;
 }
+
+.productdetail_button{
+  height: 40px;
+  width: 100px;
+  background-color: powderblue;
+}
