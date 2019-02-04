@@ -46,10 +46,13 @@
       </div>
 
       <div class="">
-        <md-button ng-href="" target="_blank">Product</md-button>
-        <md-button ng-href="" target="_blank">Service</md-button>
-        <md-button ng-href="" target="_blank">Photos</md-button>
+        <md-button ui-sref="khojiApp.profile.product" >Product</md-button>
+        <md-button ui-sref="khojiApp.profile.service" >Service</md-button>
+        <md-button ui-sref="khojiApp.profile.product" >Photos</md-button>
       </div>
     </div>
 </div>
+
 <md-divider></md-divider>
+
+<div ui-view="profileTabs"></div>

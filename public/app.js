@@ -5,7 +5,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
   'ui.router',
   'mdPickers',
   'ngAvatar',
-  'satellizer'
+  'satellizer',
 ]).config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
       $stateProvider.state('khojiApp', {
@@ -18,7 +18,12 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           },
           "content@": {
             templateUrl: "/components/searchPage/searchPage.html"
-          }/*,
+          },
+          "sidenav": {
+            templateUrl: "/components/sidenav/sidenav.html",
+            controller: 'sidenavCtrl'
+          }
+          /*,
           "footer": {
             templateUrl: "/home/templates/footer.html"
           }*/
@@ -159,7 +164,33 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/home/templates/footer.html"
           }*/
         }
-      });
+      })
+      .state('khojiApp.profile.product', {
+        url: '/product',
+        views: {
+          "profileTabs@khojiApp.profile.product": {
+            templateUrl: "/components/product/product.html",
+            controller: 'productCtrl',
+            controllerAs: 'ctrl'
+          }/*,
+          "footer": {
+            templateUrl: "/home/templates/footer.html"
+          }*/
+        }
+      })
+      .state('khojiApp.profile.service', {
+              url: '/service',
+              views: {
+                "profileTabs@khojiApp.profile.service": {
+                  templateUrl: "/components/service/service.html",
+                  controller: 'serviceCtrl',
+                  controllerAs: 'ctrl'
+                }/*,
+                "footer": {
+                  templateUrl: "/home/templates/footer.html"
+                }*/
+              }
+            });
     }
   ]).controller('khoziAppCtrl',['$scope','$state','login',function($scope,$state,login) {
     login.checkSessionExist()

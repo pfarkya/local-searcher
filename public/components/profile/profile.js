@@ -39,8 +39,6 @@ angular.module('khoziApp')
        alert("updated failed")
        ctrl.editMode = false
      });
-
     }
-
-
-}])
+}
+])

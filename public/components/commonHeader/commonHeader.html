@@ -1,11 +1,19 @@
 <md-toolbar class="md-hue-2">
   <div class="md-toolbar-tools">
+    <h2 layout-padding >Finddy</h2>
 
-    <md-button class="md-icon-button" ng-if="ctrl.loginService.isLogin()" aria-label="sidenav">
-      <md-icon md-font-icon="fa fa-bars"></md-icon>
-    </md-button>
 
-    <h2 class="spacer">Finddy</h2>
+      <div layout="row"  layout-align="start center">
+        <md-input-container class="bar">
+          <input ng-model="user.search" >
+        </md-input-container>
+
+        <div class="" layout-padding>
+          <md-button><i class="fas fa-search"></i>Search</md-button>
+        </div>
+      </div>
+
+    <span class="spacer"></span>
 
     <md-menu ng-if="ctrl.loginService.isLogin()">
       <md-button class="md-icon-button" ng-click="$mdOpenMenu()" aria-label="leftmenu">
@@ -31,7 +39,7 @@
       </md-menu-content>
       </md-menu>
 
-      <div ng-if="!ctrl.loginService.isLogin()">
+      <div layout="row" ng-if="!ctrl.loginService.isLogin()">
         <md-button ui-sref="khojiApp.register">Register</md-button>
         <md-button ui-sref="khojiApp.login">login</md-button>
       </div>
