@@ -168,7 +168,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
       .state('khojiApp.profile.product', {
         url: '/product',
         views: {
-          "profileTabs@khojiApp.profile.product": {
+          "profileTabs@khojiApp.profile": {
             templateUrl: "/components/product/product.html",
             controller: 'productCtrl',
             controllerAs: 'ctrl'
@@ -181,7 +181,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
       .state('khojiApp.profile.service', {
               url: '/service',
               views: {
-                "profileTabs@khojiApp.profile.service": {
+                "profileTabs@khojiApp.profile": {
                   templateUrl: "/components/service/service.html",
                   controller: 'serviceCtrl',
                   controllerAs: 'ctrl'
