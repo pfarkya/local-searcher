@@ -36,10 +36,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/login/login.html",
             controller: 'loginCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.register', {
@@ -49,10 +46,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/register/register.html",
             controller: 'registerCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.createEnterprise', {
@@ -62,10 +56,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/createEnterprise/createEnterprise.html",
             controller: 'createEnterpriseCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.enterprises', {
@@ -75,10 +66,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/enterprises/enterprises.html",
             controller: 'enterprisesCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.enterprises.create', {
@@ -88,10 +76,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/createEnterprise/createEnterprise.html",
             controller: 'createEnterpriseCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.enterprise', {
@@ -159,10 +144,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/profile/profile.html",
             controller: 'profileCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.product', {
@@ -172,10 +154,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/product/product.html",
             controller: 'productCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.productdetail', {
@@ -185,10 +164,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/productdetail/productdetail.html",
             controller: 'productdetailCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
         }
       })
       .state('khojiApp.profile.product', {
@@ -198,10 +174,8 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             templateUrl: "/components/product/product.html",
             controller: 'productCtrl',
             controllerAs: 'ctrl'
-          }/*,
-          "footer": {
-            templateUrl: "/home/templates/footer.html"
-          }*/
+          }
+
         }
       })
       .state('khojiApp.profile.service', {
@@ -211,10 +185,18 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
                   templateUrl: "/components/service/service.html",
                   controller: 'serviceCtrl',
                   controllerAs: 'ctrl'
-                }/*,
-                "footer": {
-                  templateUrl: "/home/templates/footer.html"
-                }*/
+                }
+              }
+            })
+      .state('khojiApp.setting', {
+              url: '/setting',
+              views: {
+                "content@": {
+                  templateUrl: "/components/setting/setting.html",
+                  controller: 'settingCtrl',
+                  controllerAs: 'ctrl'
+                }
+
               }
             });
     }

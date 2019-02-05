@@ -3,6 +3,4 @@ angular.module('khoziApp')
   console.log('productCtrl');
   let ctrl = this
 
-
-
-}])
+}]);
