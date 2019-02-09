@@ -1,39 +1,134 @@
+<md-content>
+  <md-tabs class="" md-dynamic-height>
+
+    <md-tab label="Profile setting">
+      <md-content class="md-padding">
+        <md-content>
+          <md-list flex>
+            <md-subheader class="md-no-sticky">you can edit your business profile details here
+              <md-button class="md-secondary" ng-click="">Edit</md-button>
+            </md-subheader>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Busineess Name</h4>
+              </div>
+                <p>Pawan ltd</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Busineess Email</h4>
+              </div>
+              <p>pavan@gmail.com</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Busineess Phone No.</h4>
+              </div>
+              <p>9871876552</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>website link</h4>
+              </div>
+              <p>www.google.com</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Business Address</h4>
+              </div>
+              <p>f25-adarsh nager gwalior</p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Business Fax</h4>
+              </div>
+              <p>578282888</p>
+            </md-list-item>
+      </md-content>
+    </md-tab>
 
 
-  <md-content>
-    <md-tabs class="md-primary" md-center-tabs>
-      <md-tab label="one">
+    <md-tab label="Personal setting">
         <md-content class="md-padding">
-          <h2 class="md-display-1">Tab One</h2>
-          <p class="md-body-1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue.
-            Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In
-            sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec,
-            feugiat ultricies mi.
-          </p>
-        </md-content>
-      </md-tab>
-      <md-tab label="two">
-        <md-content class="md-padding">
-          <h2 class="md-display-1">Tab Two</h2>
-          <p class="md-body-1">
-            Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa
-            orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in
-            condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim,
-            at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus.
-          </p>
-        </md-content>
-      </md-tab>
-      <md-tab label="three">
-        <md-content class="md-padding">
-          <h2 class="md-display-1">Tab Three</h2>
-          <p class="md-body-1">
-            Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur
-            posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse
-            vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci
-            commodo volutpat non ac est.
-          </p>
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
+            <md-list flex>
+              <md-subheader class="md-no-sticky">you can edit your personal details here
+              <md-button class="md-secondary" ng-click="">Edit</md-button>
+            </md-subheader>
+
+              <md-list-item>
+                <div class="md-padding">
+                  <h4>Name</h4>
+                </div>
+                <div class="">
+                  <p>Pawan</p>
+                </div>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <div class="md-padding">
+                  <h4>Email</h4>
+                </div>
+                <p>pavan@gmail.com</p>
+              </md-list-item>
+              <md-divider></md-divider>
+              <md-list-item>
+                <div class="md-padding">
+                  <h4>Phone No.</h4>
+                </div>
+                <p>9871876552</p>
+              </md-list-item>
+              <md-list-item>
+                <div class="md-padding">
+                  <h4>DOB</h4>
+                </div>
+                <p>12/12/12</p>
+              </md-list-item>
+      </md-content>
+    </md-tab>
+
+
+    <md-tab label="Account setting">
+      <md-content class="md-padding">
+        <md-list flex>
+          <md-subheader class="md-no-sticky">you can edit your Account details here
+          <md-button class="md-secondary" ng-click="">Edit</md-button>
+        </md-subheader>
+
+          <md-list-item>
+            <div class="md-padding">
+              <h4>Name</h4>
+            </div>
+            <div class="">
+              <p>Pawan</p>
+            </div>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item>
+            <div class="md-padding">
+              <h4>Username</h4>
+            </div>
+            <p>pavan@gmail.com</p>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item>
+            <div class="md-padding">
+              <h4>Password</h4>
+            </div>
+            <p>98ddfd6552</p>
+          </md-list-item>
+          <md-list-item>
+            <div class="md-padding">
+              <h4>Deactivate account</h4>
+            </div>
+            <md-switch ng-model="data.cb1" aria-label="Switch 1">Switch 1: {{ data.cb1 }}</md-switch>
+          </md-list-item>
+      </md-content>
+    </md-tab>
+
+  </md-tabs>
+</md-content>

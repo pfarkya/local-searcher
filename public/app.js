@@ -186,6 +186,22 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
                 }
               }
             })
+      .state('khojiApp.profile.about', {
+              url: '/about',
+              views: {
+                "profileTabs@khojiApp.profile": {
+                  templateUrl: "/components/about/about.html",
+                }
+              }
+            })
+      .state('khojiApp.profile.photos', {
+              url: '/photos',
+              views: {
+                "profileTabs@khojiApp.profile": {
+                  templateUrl: "/components/photos/photos.html",
+                }
+              }
+            })
       .state('khojiApp.setting', {
               url: '/setting',
               views: {
