@@ -207,9 +207,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               views: {
                 "content@": {
                   templateUrl: "/components/setting/setting.html",
-
                 }
-
               }
             });
     }
