@@ -191,6 +191,8 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               views: {
                 "profileTabs@khojiApp.profile": {
                   templateUrl: "/components/about/about.html",
+                  controller: 'aboutCtrl',
+                  controllerAs: 'ctrl'
                 }
               }
             })
@@ -207,6 +209,8 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               views: {
                 "content@": {
                   templateUrl: "/components/setting/setting.html",
+                  controller: 'settingCtrl',
+                  controllerAs: 'ctrl'
                 }
               }
             });
