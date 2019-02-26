@@ -39,6 +39,16 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           }
         }
       })
+      .state('khojiApp.searchPage', {
+        url: '/searchPage',
+        views: {
+          "content@": {
+            templateUrl: "/components/searchPage/searchPage.html",
+            controller: 'searchPageCtrl',
+            controllerAs: 'ctrl'
+          }
+        }
+      })
       .state('khojiApp.register', {
         url: '/register',
         views: {
@@ -153,6 +163,16 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           "content@": {
             templateUrl: "/components/product/product.html",
             controller: 'productCtrl',
+            controllerAs: 'ctrl'
+          }
+        }
+      })
+      .state('khojiApp.productedit', {
+        url: '/productedit',
+        views: {
+          "content@": {
+            templateUrl: "/components/productedit/productedit.html",
+            controller: 'producteditCtrl',
             controllerAs: 'ctrl'
           }
         }

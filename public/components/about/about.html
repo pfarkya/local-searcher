@@ -1,8 +1,8 @@
-<md-content class="md-padding" layout="row" layout-xs="column" >
-  <div layout="row" layout-xs="column" layout-align="start start">
-      <md-card>
+<md-content class="md-padding" >
+  <div layout="row" layout-xs="column" layout-align-md="start start" layout-align="start start">
+      <md-card flex-xs="100" flex-gt-xs="50">
         <md-list-item >
-            <h6>Company Name : {{ctrl.user.businessName}}</h6>
+            <h6>Company Name :  {{ctrl.user.businessName}}</h6>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
@@ -10,32 +10,34 @@
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-            <h6>Phone No. : {{ctrl.user.businessPhoneNumber}}</h6>
+            <h6>Phone No. :  {{ctrl.user.businessPhoneNumber}}</h6>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-            <h6>website : {{ctrl.user.businessWebsiteLink}}</h6>
+            <h6>website :  {{ctrl.user.businessWebsiteLink}}</h6>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-            <h6>Business Address : {{ctrl.user.businessAddress}}</h6>
+            <h6>Business Address :  {{ctrl.user.businessAddress}}</h6>
         </md-list-item>
         <md-divider></md-divider>
         <md-list-item>
-            <h6>Business Fax : {{ctrl.user.businessFax}}</h6>
+            <h6>Business Fax :  {{ctrl.user.businessFax}}</h6>
         </md-list-item>
       </md-card>
 
-      <md-card>
+      <md-card >
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">About</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content>
+        <md-card-content style="text-align: top">
           <p>{{ctrl.user.businessAbout}}</p>
         </md-card-content>
         <br>
       </md-card>
+
+
 </div>
 </md-content>
