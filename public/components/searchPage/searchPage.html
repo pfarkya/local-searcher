@@ -1,17 +1,4 @@
 <div class="">
-   This is search Page default page of Finddy
-   <md-content md-theme="docs-dark" layout="row" layout-align="center center" layout-padding="100px">
-    <div layout="row" layout-padding flex>
-      <md-input-container flex>
-        <label>Search for any thing</label>
-        <input ng-model="user.search">
-      </md-input-container>
-
-      <div>
-        <md-button><i class="fas fa-search"></i>Search</md-button>
-      </div>
-    </div>
-  </md-content>
 
   <div class="md-padding" layout="row">
     <md-card layout="row">
@@ -20,10 +7,11 @@
       </div>
 
       <div layout="column"class="md-padding">
-          <h2>Company Name</h2>
+          <h2 ui-sref="khojiApp.profileview">Company Name</h2>
           <p>Specilities</p>
           <p>Contact</p>
           <p>Web link</p>
+          <md-button ui-sref="khojiApp.profileview" >profile view page redirect link</md-button>
       </div>
     </md-card>
   </div>
