@@ -175,6 +175,9 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             controller: 'producteditCtrl',
             controllerAs: 'ctrl'
           }
+        },params: {
+          product: undefined,
+          isAddProduct: false
         }
       })
       .state('khojiApp.productdetail', {
@@ -183,6 +186,9 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           "content@": {
             templateUrl: "/components/productdetail/productdetail.html",
           }
+        },
+        params: {
+          product: {}
         }
       })
       .state('khojiApp.profile.product', {
@@ -193,7 +199,6 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             controller: 'productCtrl',
             controllerAs: 'ctrl'
           }
-
         }
       })
       .state('khojiApp.profile.service', {
@@ -236,15 +241,19 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             });
     }
   ]).controller('khoziAppCtrl',['$scope','$state','login',function($scope,$state,login) {
-    login.checkSessionExist()
-    if(login.isLogin()) {
-      login.getProfile().then(()=> {
-        $state.go('khojiApp');
-        console.log("complete userdetail");
-      }, () => {
-        $state.go('khojiApp');
-      })
-    }
+    login.checkSessionExist().then(() => {
+      if(login.isLogin()) {
+        login.getProfile().then(()=> {
+          $state.go('khojiApp');
+          console.log("complete userdetail");
+        }, () => {
+          alert("unable to get detail")
+        })
+      } else {
+        $state.go('khojiApp.login');
+      }
+    })
+
     console.log("loaded controller");
     console.log($scope);
 

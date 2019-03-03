@@ -14,7 +14,7 @@ angular.module('khoziApp').service('login',['$http',function($http){
     self.user = value
   }
 
-  self.getUserDetail = function(value) {
+  self.getUserDetail = function() {
     return self.user
   }
 
@@ -38,7 +38,7 @@ angular.module('khoziApp').service('login',['$http',function($http){
     })
   }
   self.checkSessionExist = function() {
-    $http({
+    return $http({
       method : "GET",
       url : "/session",
     }).then(function(response) {
@@ -54,5 +54,36 @@ angular.module('khoziApp').service('login',['$http',function($http){
       if(response.status == 404) alert("Not a user yet Please register");
       else alert("Login Failed");
     });
+  }
+  self.getProducts = function() {
+    return $http({
+       method : "GET",
+       url : "/all_products",
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
+  self.addProduct = function(product) {
+    product.ownerId = self.getUserDetail()._id;
+    product.type = 'product'
+    return $http({
+       method : "POST",
+       url : "/add_product",
+       headers: {
+         'Content-Type': "application/json"
+       },
+       data : product
+     })
+  }
+  self.editProduct = function(product) {
+    return $http({
+       method : "PUT",
+       url : "/edit_product",
+       headers: {
+         'Content-Type': "application/json"
+       },
+       data : product
+     })
   }
 }])

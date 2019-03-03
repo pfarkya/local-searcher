@@ -97,7 +97,7 @@ var indexify = function() {
 }
 
 var indexifyProductDb = function() {
-  var email_index = {name:'providerId', type:'json', index:{fields:['providerId','name','category','enterpriseId']}}
+  var email_index = {name:'providerId', type:'json', index:{fields:['providerId','name','category','enterpriseId','ownerId','type']}}
   productsDb.index(email_index, function(er, response) {
     if (er) {
       console.log(er)
@@ -294,6 +294,69 @@ app.get('/getProfileProducts', function() {
 
 app.post('/addProducts', function(req, res) {
   productsDb.find({selector:{providerId:req.body.providerId, name: req.body.name}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+    } else {
+      res.status(409).send({message:"already producct exist please update same"})
+    }
+  });
+})
+
+app.get('/all_products', function(req, res) {
+  productsDb.find({selector:{ownerId:req.session.user._id, type:'product'}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    res.status(200).send(result.docs)
+  });
+})
+
+app.put('/edit_product', function(req, res) {
+  productsDb.find({selector:{_id:req.body._id}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:"product not found"})
+    } else {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+
+    }
+  });
+})
+
+app.post('/add_product', function(req, res) {
+  productsDb.find({selector:{ownerId:req.body.ownerId, name: req.body.name, type: 'product'}}, function(er, result) {
     if (er) {
       res.status(500).send(er)
     }
