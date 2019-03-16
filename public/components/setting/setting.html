@@ -51,7 +51,14 @@
               <input required type="text" ng-model="ctrl.editedUser.businessFax" ng-disabled="ctrl.viewMode"/>
             </md-list-item>
             <md-divider></md-divider>
-            <md-divider></md-divider>
+            <md-list-item>
+              <div class="md-padding">
+                <h4>Business Profile photo or logo</h4>
+              </div>
+              <input type="file" ng-file-select="onFileSelect($files)" ng-model="imageSrc">
+              <img ng-src="{{imageSrc}}" style="width:200px; height:200px;" />
+            </md-list-item>
+            <md-divider></md-divider>  <md-divider></md-divider>
             <md-input-container class="md-block" class="md-padding">
               <label>Write About your business</label>
               <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.editedUser.businessAbout" ng-disabled="ctrl.viewMode"></textarea>
@@ -93,6 +100,7 @@
                 </div>
                 <input required type="text" ng-model="ctrl.editedUser.phoneNumber" ng-disabled="ctrl.viewMode"/>
               </md-list-item>
+
               <md-list-item>
                 <div class="md-padding">
                   <h4>DOB</h4>
