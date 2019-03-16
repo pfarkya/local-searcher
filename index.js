@@ -382,7 +382,7 @@ app.post('/add_product', function(req, res) {
 
 app.get('/search', function(req, res) {
   console.log("query",req.query)
-  usersDb.find({selector:{businessName:{'$exists': true,'$regex':req.query.q}}}, function(er, result) {
+  usersDb.find({selector:{businessName:{'$exists': true,'$regex':"(?i)"+req.query.q}}}, function(er, result) {
     if (er) {
       return res.send(er)
     }
