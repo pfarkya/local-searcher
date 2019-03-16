@@ -380,6 +380,21 @@ app.post('/add_product', function(req, res) {
   });
 })
 
+app.get('/search', function(req, res) {
+  console.log("query",req.query)
+  usersDb.find({selector:{businessName:{'$exists': true,'$regex':req.query.q}}}, function(er, result) {
+    if (er) {
+      return res.send(er)
+    }
+
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    res.status(200).send(result.docs)
+  });
+})
+
 app.post('/login', function(req,res){
 
   usersDb.find({selector:{email:req.body.email}}, function(er, result) {

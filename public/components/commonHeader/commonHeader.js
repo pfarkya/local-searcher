@@ -1,6 +1,7 @@
 angular.module('khoziApp')
 .controller('commonHeaderCtrl',['$state','login','$http',function($state,login,$http) {
   let ctrl = this
+  ctrl.search = ''
   ctrl.loginService = login
   ctrl.logout = function() {
     $http({

@@ -17,7 +17,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             controllerAs: 'ctrl'
           },
           "content@": {
-            templateUrl: "/components/searchPage/searchPage.html"
+            templateUrl: "/components/home/home.html"
           },
           "sidenav": {
             templateUrl: "/components/sidenav/sidenav.html",
@@ -47,6 +47,9 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             controller: 'searchPageCtrl',
             controllerAs: 'ctrl'
           }
+        },
+        params: {
+          q: undefined
         }
       })
       .state('khojiApp.register', {
@@ -252,7 +255,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
     login.checkSessionExist().then(() => {
       if(login.isLogin()) {
         login.getProfile().then(()=> {
-          $state.go('khojiApp');
+          // $state.go('khojiApp');
           console.log("complete userdetail");
         }, () => {
           alert("unable to get detail")

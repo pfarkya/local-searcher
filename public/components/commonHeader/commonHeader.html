@@ -6,11 +6,11 @@
       <div layout="row"  layout-align="start center">
         <md-input-container class="bar">
           <label>Search for any thing</label>
-          <input ng-model="user.search" >
+          <input ng-model="ctrl.search" >
         </md-input-container>
 
         <div class="" layout-padding>
-          <md-button ui-sref="khojiApp.searchPage"><i class="fas fa-search"></i>Search</md-button>
+          <md-button ui-sref="khojiApp.searchPage({q:ctrl.search})"><i class="fas fa-search"></i>Search</md-button>
         </div>
       </div>
 

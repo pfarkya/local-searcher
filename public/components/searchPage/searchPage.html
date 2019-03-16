@@ -1,13 +1,13 @@
 <div class="">
 
-  <div class="md-padding" layout="row">
-    <md-card layout="row">
+  <div layout-wrap class="md-padding" layout="row">
+    <md-card ng-repeat="profile in ctrl.profiles" layout="row">
       <div >
          <img Class="profile_pic" src="https://fch.lisboa.ucp.pt/sites/default/files/styles/asset_square/public/assets/images/avatar-fch_9.png?itok=3yXhnOuB"/>
       </div>
 
       <div layout="column"class="md-padding">
-          <h2 ui-sref="khojiApp.profileview">Company Name</h2>
+          <h2 ui-sref="khojiApp.profileview">{{profile.businessName}}</h2>
           <p>Specilities</p>
           <p>Contact</p>
           <p>Web link</p>
