@@ -4,15 +4,15 @@
        <img Class="profile_pic" src="https://fch.lisboa.ucp.pt/sites/default/files/styles/asset_square/public/assets/images/avatar-fch_9.png?itok=3yXhnOuB"/>
     </div>
 
-    <div layout-xs="column" layout-align-xs="center center" >
+    <div layout-xs="column" layout-align-xs="center center" flex >
       <div class="md-padding">
         <h2>Company Name :  {{ctrl.user.businessName}}</h2>
         <h4>Specility</h4>
       </div>
 
-      <div class="" layout-xs="row">
-      <md-content class="md-padding">
-        <md-tabs class="" md-dynamic-height>
+
+      <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="">
 
           <md-tab label="About">
             <md-content class="md-padding" >
@@ -89,10 +89,6 @@
 
         </md-tabs>
       </md-content>
-      </div>
+
     </div>
 </div>
-
-<md-divider></md-divider>
-
-<div ui-view="profileTabs"></div>
