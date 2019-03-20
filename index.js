@@ -239,7 +239,11 @@ app.put('/updateProfile', function(req, res) {
 })
 
 app.get('/getProfile', function(req, res) {
-  usersDb.find({selector:{_id:req.session.user._id}}, function(er, result) {
+  var id = req.session.user._id
+  if(req.query.profileId) {
+    id = req.query.profileId
+  }
+  usersDb.find({selector:{_id: id}}, function(er, result) {
     if (er) {
       return res.status(500).send(er)
     }
@@ -318,7 +322,11 @@ app.post('/addProducts', function(req, res) {
 })
 
 app.get('/all_products', function(req, res) {
-  productsDb.find({selector:{ownerId:req.session.user._id, type:'product'}}, function(er, result) {
+  var ownerId = req.session.user._id
+  if(req.query && req.query.ownerId) {
+    ownerId = req.query.ownerId
+  }
+  productsDb.find({selector:{ownerId:ownerId, type:'product'}}, function(er, result) {
     if (er) {
       res.status(500).send(er)
     }

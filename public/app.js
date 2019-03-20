@@ -161,10 +161,12 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
         }
       })
       .state('khojiApp.profileview', {
-        url: '/profileview',
+        url: '/profileview/:profileId',
         views: {
           "content@": {
-            templateUrl: "/components/profileview/profileview.html",
+            templateUrl: "/components/profile/profile.html",
+            controller: 'profileCtrl',
+            controllerAs: 'ctrl'
           }
         }
       })
@@ -236,6 +238,44 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               url: '/photos',
               views: {
                 "profileTabs@khojiApp.profile": {
+                  templateUrl: "/components/photos/photos.html",
+                }
+              }
+            })
+      .state('khojiApp.profileview.product', {
+        url: '/product',
+        views: {
+          "profileTabs@khojiApp.profileview": {
+            templateUrl: "/components/product/product.html",
+            controller: 'productCtrl',
+            controllerAs: 'ctrl'
+          }
+        }
+      })
+      .state('khojiApp.profileview.service', {
+              url: '/service',
+              views: {
+                "profileTabs@khojiApp.profileview": {
+                  templateUrl: "/components/service/service.html",
+                  controller: 'serviceCtrl',
+                  controllerAs: 'ctrl'
+                }
+              }
+            })
+      .state('khojiApp.profileview.about', {
+              url: '/about',
+              views: {
+                "profileTabs@khojiApp.profileview": {
+                  templateUrl: "/components/about/about.html",
+                  controller: 'aboutCtrl',
+                  controllerAs: 'ctrl'
+                }
+              }
+            })
+      .state('khojiApp.profileview.photos', {
+              url: '/photos',
+              views: {
+                "profileTabs@khojiApp.profileview": {
                   templateUrl: "/components/photos/photos.html",
                 }
               }

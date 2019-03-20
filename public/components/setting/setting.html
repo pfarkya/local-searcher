@@ -55,7 +55,7 @@
               <div class="md-padding">
                 <h4>Business Profile photo or logo</h4>
               </div>
-              <input type="file" app-filereader ng-model="ctrl.editedUser.profile_pic">
+              <input type="file" app-filereader ng-model="ctrl.editedUser.profile_pic" ng-disabled="ctrl.viewMode">
               <img ng-src="{{ctrl.editedUser.profile_pic}}" style="width:200px; height:200px;"  id="testimg"/>
             </md-list-item>
             <md-divider></md-divider>  <md-divider></md-divider>
@@ -142,13 +142,4 @@
     </md-tab>
 
   </md-tabs>
-
-  <input type="file" accept="image/*" onchange="loadFile(event)">
-<img id="output"/>
-<script>
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-</script>
 </md-content>

@@ -31,6 +31,19 @@ angular.module('khoziApp').service('login',['$http',function($http){
     });
   }
 
+  self.getProfileById = function(profileId){
+    return $http({
+      method : "GET",
+      url : "/getProfile?profileId=" + profileId,
+    }).then(function(response) {
+      if(response.data) {
+        return response.data
+      }
+    }, function(response) {
+      console.log("something wrong!")
+    });
+  }
+
   self.getEnterprises= function() {
     return $http({
       method : "GET",
@@ -59,6 +72,16 @@ angular.module('khoziApp').service('login',['$http',function($http){
     return $http({
        method : "GET",
        url : "/all_products",
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
+
+  self.getProductsByOwnerId = function(ownerId) {
+    return $http({
+       method : "GET",
+       url : "/all_products?ownerId=" + ownerId,
        headers: {
          'Content-Type': "application/json"
        }

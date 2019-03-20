@@ -10,11 +10,17 @@
         <h4>Specility</h4>
       </div>
 
-      <div class="">
+      <div ng-if="!ctrl.previewMode" class="">
         <md-button ui-sref="khojiApp.profile.about" >About</md-button>
         <md-button ui-sref="khojiApp.profile.product" >Product</md-button>
         <md-button ui-sref="khojiApp.profile.service" >Service</md-button>
         <md-button ui-sref="khojiApp.profile.photos" >Photos</md-button>
+      </div>
+      <div ng-if="ctrl.previewMode" class="">
+        <md-button ui-sref="khojiApp.profileview.about({profileId:ctrl.profileId})" >About</md-button>
+        <md-button ui-sref="khojiApp.profileview.product({profileId:ctrl.profileId})" >Product</md-button>
+        <md-button ui-sref="khojiApp.profileview.service({profileId:ctrl.profileId})" >Service</md-button>
+        <md-button ui-sref="khojiApp.profileview.photos({profileId:ctrl.profileId})" >Photos</md-button>
       </div>
     </div>
 </div>
