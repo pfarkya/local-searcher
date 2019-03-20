@@ -1,23 +1,6 @@
 <md-content class="md-padding" layout="row">
-<div layout-wrap class="layout-row layout-xs-column">
-   <div class="productCard" flex>
-      <md-card  class="product-card">
-        <img ng-src="" class="md-card-image" alt="Washed Out">
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Product Name</span>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <p>
-            Price
-          </p>
-        </md-card-content>
-        <md-button ui-sref="khojiApp.productedit" class="md-raised md-primary"> Edit </md-button>
-      </md-card>
-    </div>
-
-    <div ng-repeat="productItem in ctrl.productList"class="productCard" flex>
+<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
+  <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="30">
        <md-card  class="product-card">
          <img ng-src="" class="md-card-image" alt="Washed Out">
          <md-card-title>
@@ -32,7 +15,7 @@
          </md-card-content>
          <md-button ui-sref="khojiApp.productedit({product:productItem})" class="md-raised md-primary"> Edit </md-button>
        </md-card>
-     </div>
+    </div>
   <md-button  layout="row" layout-align="center center" ui-sref="khojiApp.productedit({isAddProduct:true})"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>
 </div>
 </md-content>

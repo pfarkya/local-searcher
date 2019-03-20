@@ -268,4 +268,73 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
     console.log("loaded controller");
     console.log($scope);
 
-  }]);
+  }])
+  .directive('appFilereader', function($q) {
+    var slice = Array.prototype.slice;
+
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
+                if (!ngModel) return;
+
+                ngModel.$render = function() {};
+
+                element.bind('change', function(e) {
+                    var element = e.target;
+
+                    $q.all(slice.call(element.files, 0).map(readFile))
+                        .then(function(values) {
+                            if (element.multiple) ngModel.$setViewValue(values);
+                            else ngModel.$setViewValue(values.length ? values[0] : null);
+                        });
+
+                    function readFile(file) {
+                        var deferred = $q.defer();
+
+                        var reader = new FileReader();
+                        reader.onload = function(mime_type,e) {
+                            console.log("file loaded",{e,mime_type})
+                            var source_img_obj = new Image();
+                            source_img_obj.src = e.target.result
+                            source_img_obj.onload = function() {
+                               console.log('height: ' + this.naturalWidth);
+                               console.log("Original W*H",{W:source_img_obj.naturalWidth,H:source_img_obj.naturalHeight})
+                               var maxWidth = 1000;
+                               var quality = 50
+                               var natW = source_img_obj.naturalWidth;
+                               var natH = source_img_obj.naturalHeight;
+                               var ratio = natH / natW;
+                               if (natW > maxWidth) {
+                                   natW = maxWidth;
+                                   natH = ratio * maxWidth;
+                               }
+
+                               var cvs = document.createElement('canvas');
+                               cvs.width = natW;
+                               cvs.height = natH;
+
+                               var ctx = cvs.getContext("2d").drawImage(source_img_obj, 0, 0, natW, natH);
+                               var newImageData = cvs.toDataURL(mime_type, quality/100);
+                               var result_image_obj = new Image();
+                               console.log("output data",newImageData)
+                               result_image_obj.src = newImageData;
+
+                               deferred.resolve(newImageData);
+                            };
+
+                        }.bind(reader,file.type);
+                        reader.onerror = function(e) {
+                            deferred.reject(e);
+                        };
+                        console.log(file)
+                        reader.readAsDataURL(file);
+
+                        return deferred.promise;
+                    }
+
+                }); //change
+
+            } //link
+    }; //return
+});

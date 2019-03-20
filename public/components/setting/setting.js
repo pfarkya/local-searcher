@@ -18,6 +18,19 @@ angular.module('khoziApp')
     ctrl.updateUser()
 
   }
+
+  ctrl.onFileSelect = function(file) {
+    console.log("inside onFileSelect",file);
+    var reader = new FileReader();
+    reader.readAsDataURL(file.files[0])
+
+  }
+  ctrl.onFileChange = function(file) {
+    console.log("inside onFileChange",file);
+    var reader = new FileReader();
+    reader.readAsDataURL(file.files[0])
+
+  }
   ctrl.cancelEditProfile = function(){
     ctrl.editMode = false
   }
