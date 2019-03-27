@@ -8,6 +8,13 @@
 
     </md-subheader>
     <md-divider></md-divider>
+    <md-list-item>
+      <div class="md-padding">
+        <h4>Product photos</h4>
+      </div>
+      <input type="file" app-filereader ng-model="" ng-disabled="ctrl.viewMode">
+      <img ng-src="{{}}" style="width:200px; height:200px;"  id="testimg"/>
+    </md-list-item>
 
       <md-list-item>
         <div class="md-padding">

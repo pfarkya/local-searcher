@@ -27,6 +27,9 @@
   height: 150px;
   width: 150px;
   background-color: powderblue;
+  border-style: solid;
+  border-width: 1px;
+  border-color: DodgerBlue;
 }
 
 .bar{
@@ -38,7 +41,7 @@
 
 
 .product-card {
-  
+
 }
 
 .productdetail_button{
