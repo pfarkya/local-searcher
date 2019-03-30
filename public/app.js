@@ -293,7 +293,14 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
     }
   ]).controller('khoziAppCtrl',['$scope','$state','login','$mdSidenav', function($scope,$state,login,$mdSidenav) {
     var ctrl = this;
-    ctrl.isLogin = login.isLogin
+    ctrl.isLogin = function() {
+      if(login.isLogin()) {
+        ctrl.user = login.getUserDetail();
+        return true;
+      } else {
+        return false;
+      }
+    }
     login.checkSessionExist().then(() => {
       if(login.isLogin()) {
         login.getProfile().then(()=> {

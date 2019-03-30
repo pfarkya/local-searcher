@@ -33,10 +33,19 @@
       <md-content layout-margin>
         <img ng-if="ctrl.isLogin()" ng-src="{{ctrl.user.profile_pic}}" class="sidenavProfileImg"/>
         <i ng-if="!ctrl.isLogin()" class="fas fa-user-circle fa-6x"></i>
-        <p>
-          This sidenav is showing the backdrop, but users can't close the
-           sidenav by clicking on the backdrop or pressing the 'Escape' key.
-        </p>
+        <h2 class="sidenavCompanyName">
+          {{ctrl.isLogin()? ctrl.user.businessName : 'Login' }}
+        </h2>
+        <div class="sidenavMenu">
+          <div ui-sref="khojiApp" class="sidenavMenuItem"> Home </div>
+          <hr class="menuHorizontalDivider">
+          <div ui-sref="khojiApp.profile.about" class="sidenavMenuItem"> About </div>
+          <div ui-sref="khojiApp.profile.product" class="sidenavMenuItem"> Product </div>
+          <div ui-sref="khojiApp.profile.service" class="sidenavMenuItem"> Service </div>
+          <div ui-sref="khojiApp.profile.photos" class="sidenavMenuItem"> Photos </div>
+          <div ui-sref="khojiApp.help" class="sidenavMenuItem"> Help </div>
+          <div ui-sref="khojiApp.termcondition" class="sidenavMenuItem"> Terms and conditions </div>
+        </div>
       </md-content>
 
     </md-sidenav>

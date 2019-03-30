@@ -56,3 +56,21 @@ img.sidenavProfileImg {
     border: 1px solid black;
     border-radius: 50px;
 }
+
+h2.sidenavCompanyName.ng-binding {
+    color: grey;
+    border-left: 4px solid blue;
+    padding-left: 10px;
+}
+
+.sidenavMenuItem {
+    cursor: pointer;
+    font-size: larger;
+    font-weight: 600;
+    color: blue;
+    padding: 5px;
+}
+
+.sidenavMenuItem:hover {
+   background-color: lightgrey;
+}
