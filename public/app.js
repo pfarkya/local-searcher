@@ -280,6 +280,22 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
                 }
               }
             })
+      .state('khojiApp.terms', {
+              url: '/terms',
+              views: {
+                "content@": {
+                  templateUrl: "/components/terms/terms.html",
+                }
+              }
+            })
+      .state('khojiApp.help', {
+                    url: '/help',
+                    views: {
+                      "content@": {
+                        templateUrl: "/components/help/help.html",
+                      }
+                    }
+                  })
       .state('khojiApp.setting', {
               url: '/setting',
               views: {

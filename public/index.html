@@ -37,14 +37,13 @@
           {{ctrl.isLogin()? ctrl.user.businessName : 'Login' }}
         </h2>
         <div class="sidenavMenu">
-          <div ui-sref="khojiApp" class="sidenavMenuItem"> Home </div>
-          <hr class="menuHorizontalDivider">
-          <div ui-sref="khojiApp.profile.about" class="sidenavMenuItem"> About </div>
-          <div ui-sref="khojiApp.profile.product" class="sidenavMenuItem"> Product </div>
-          <div ui-sref="khojiApp.profile.service" class="sidenavMenuItem"> Service </div>
-          <div ui-sref="khojiApp.profile.photos" class="sidenavMenuItem"> Photos </div>
+          <div ng-if="ctrl.isLogin()"  ui-sref="khojiApp.profile.about" class="sidenavMenuItem"> Profile </div>
+          <div ng-if="ctrl.isLogin()"  ui-sref="khojiApp.profile.product" class="sidenavMenuItem"> Product </div>
+          <div ng-if="ctrl.isLogin()"  ui-sref="khojiApp.profile.service" class="sidenavMenuItem"> Service </div>
+          <div ng-if="ctrl.isLogin()" ui-sref="khojiApp.profile.photos" class="sidenavMenuItem"> Photos </div>
+          <div ng-if="ctrl.isLogin()" ui-sref="khojiApp.setting" class="sidenavMenuItem"> Setting </div>
           <div ui-sref="khojiApp.help" class="sidenavMenuItem"> Help </div>
-          <div ui-sref="khojiApp.termcondition" class="sidenavMenuItem"> Terms and conditions </div>
+          <div ui-sref="khojiApp.terms" class="sidenavMenuItem"> Terms and conditions </div>
         </div>
       </md-content>
 
