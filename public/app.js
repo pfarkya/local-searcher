@@ -291,13 +291,17 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               }
             });
     }
-  ]).controller('khoziAppCtrl',['$scope','$state','login',function($scope,$state,login) {
+  ]).controller('khoziAppCtrl',['$scope','$state','login','$mdSidenav', function($scope,$state,login,$mdSidenav) {
+    var ctrl = this;
+    ctrl.isLogin = login.isLogin
     login.checkSessionExist().then(() => {
       if(login.isLogin()) {
         login.getProfile().then(()=> {
           // $state.go('khojiApp');
+          ctrl.user = login.getUserDetail();
           console.log("complete userdetail");
         }, () => {
+          $state.go('khojiApp.login');
           alert("unable to get detail")
         })
       } else {
@@ -307,6 +311,14 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
 
     console.log("loaded controller");
     console.log($scope);
+    ctrl.toggleSidenav = buildToggler('closeEventsDisabled');
+
+    function buildToggler(componentId) {
+      return function() {
+        console.log("run this function")
+        $mdSidenav(componentId).toggle();
+      };
+    }
 
   }])
   .directive('appFilereader', function($q) {

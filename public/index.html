@@ -14,7 +14,32 @@
     <link href="/main.css" rel="stylesheet">
 
   </head>
-  <body ng-app="khoziApp" ng-controller="khoziAppCtrl">
+  <body ng-app="khoziApp" ng-controller="khoziAppCtrl as ctrl">
+    <md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled"
+              md-whiteframe="4" md-disable-close-events>
+
+      <md-toolbar class="md-theme-indigo">
+        <div class="md-toolbar-tools">
+
+          <h1 layout-padding>Finddy</h1>
+          <span class="spacer"></span>
+          <md-button ng-click="ctrl.toggleSidenav()" class="md-icon-button">
+            <i class="far fa-times-circle"></i>
+          </md-button>
+        </div>
+
+      </md-toolbar>
+
+      <md-content layout-margin>
+        <img ng-if="ctrl.isLogin()" ng-src="{{ctrl.user.profile_pic}}" class="sidenavProfileImg"/>
+        <i ng-if="!ctrl.isLogin()" class="fas fa-user-circle fa-6x"></i>
+        <p>
+          This sidenav is showing the backdrop, but users can't close the
+           sidenav by clicking on the backdrop or pressing the 'Escape' key.
+        </p>
+      </md-content>
+
+    </md-sidenav>
     <div ui-view="header"></div>
     <!--<div ui-view="sidenav"></div> -->
     <div ui-view="content"></div>

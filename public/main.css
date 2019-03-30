@@ -50,3 +50,9 @@
   background-color: powderblue;
   text-decoration-color: #c13e13;
 }
+img.sidenavProfileImg {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+}

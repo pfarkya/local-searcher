@@ -1,5 +1,5 @@
 angular.module('khoziApp')
-.controller('commonHeaderCtrl',['$state','login','$http',function($state,login,$http) {
+.controller('commonHeaderCtrl',['$state','login','$http', '$mdSidenav',function($state,login,$http,$mdSidenav) {
   let ctrl = this
   ctrl.search = ''
   ctrl.loginService = login
@@ -17,4 +17,11 @@ angular.module('khoziApp')
      });
   }
   console.log('commonHeaderCtrl');
+  ctrl.toggleSidenav = buildToggler('closeEventsDisabled');
+
+  function buildToggler(componentId) {
+    return function() {
+      $mdSidenav(componentId).toggle();
+    };
+  }
 }])
