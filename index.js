@@ -140,10 +140,10 @@ var indexifyEnterpriseDb = function() {
 
 }
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: false, limit:1024*1024*20 })
 
 app.use(urlencodedParser)
-app.use(bodyParser.json())
+app.use(bodyParser.json({limit:1024*1024*20}))
 app.use(session({secret: "Your secret key"}));
 app.use(function(req,res,next) {
   console.log('Path',req.path)

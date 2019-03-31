@@ -198,10 +198,12 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
         views: {
           "content@": {
             templateUrl: "/components/productdetail/productdetail.html",
+            controller: 'productdetailCtrl',
+            controllerAs: 'ctrl'
           }
         },
         params: {
-          product: {}
+          product: undefined
         }
       })
       .state('khojiApp.profile.product', {

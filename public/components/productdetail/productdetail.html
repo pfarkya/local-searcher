@@ -1,32 +1,8 @@
 <md-content class="md-padding" layout="column" >
-
-<div class="">
-  <p>pavan/product</p>
-</div>
-
-  <div layout="column" layout-align="center center">
-      <md-card >
-
-        <img src="https://fch.lisboa.ucp.pt/sites/default/files/styles/asset_square/public/assets/images/avatar-fch_9.png?itok=3yXhnOuB" style="width:300px; height:600px;"  id="testimg"/>
-        <md-card-title>
-          <md-card-title-text>
-            <span class="md-headline">Product Name</span>
-            <h6>Product price</h6>
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <h5>About</h5>
-          <p>we need to make it a editable product to save changes</p>
-        </md-card-content>
-        <br>
-        <md-card-actions layout="row" layout-align="start center">
-          <md-button class="md-raised md-primary"> Edit </md-button>
-          <md-button class="md-raised md-primary"> Delete </md-button>
-        </md-card-actions>
-      </md-card>
-
-
-
-
-</div>
+  <div class="">
+    <pic-scroller pictures="ctrl.product.pictures"></pic-scroller>
+  </div>
+  <div>Product Name: {{ctrl.product.name}}</div>
+  <div>Product About: {{ctrl.product.about}}</div>
+  <div>Product Price: {{ctrl.product.price}}</div>
 </md-content>

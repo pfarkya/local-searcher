@@ -7,6 +7,14 @@ angular.module('khoziApp')
   if($stateParams.product) {
     ctrl.product = Object.assign({}, $stateParams.product)
   }
+  if(!ctrl.product.pictures) {
+    ctrl.product.pictures = [{}]
+  }
+  ctrl.product.pictures.forEach((ele,i) => {
+    if(typeof ele != "object") {
+      ctrl.product.pictures[i] = {}
+    }
+  })
   ctrl.editMode = function() {
     ctrl.viewMode = false
   }
@@ -36,5 +44,8 @@ angular.module('khoziApp')
     }
   }
   console.log("stateParams are", $stateParams)
+  ctrl.addMorePics = function() {
+    ctrl.product.pictures.push({});
+  }
 
 }]);

@@ -74,3 +74,18 @@ h2.sidenavCompanyName.ng-binding {
 .sidenavMenuItem:hover {
    background-color: lightgrey;
 }
+
+.picScroller {
+  position: relative;
+}
+
+.picScroller > .rightArrow {
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 0px;
+}
+
+.picScroller > .leftArrow {
+  position: absolute;
+  top: calc(50% - 5px);
+}

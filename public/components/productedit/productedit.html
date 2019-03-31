@@ -1,7 +1,7 @@
   <div>
     <md-content class="md-padding">
     <md-list flex>
-      <md-button ng-disabled="ctrl.viewMode" ui-sref="khojiApp.profile.product"  class="md-secondary" >GO to Product page</md-button>
+      <md-button ui-sref="khojiApp.profile.product"  class="md-secondary" >GO to Product page</md-button>
       <md-subheader class="md-no-sticky">Edit Product details
       <md-button ng-disabled="!ctrl.viewMode" ng-click="ctrl.editMode()" class="md-secondary" >Edit</md-button>
       <md-button ng-disabled="ctrl.viewMode" ng-click="ctrl.saveProduct()" class="md-secondary" >Save</md-button>
@@ -12,8 +12,12 @@
       <div class="md-padding">
         <h4>Product photos</h4>
       </div>
-      <input type="file" app-filereader ng-model="" ng-disabled="ctrl.viewMode">
-      <img ng-src="{{}}" style="width:200px; height:200px;"  id="testimg"/>
+      <div ng-repeat="picture in ctrl.product.pictures">
+        <input type="file" app-filereader ng-model="picture.src" ng-disabled="ctrl.viewMode">
+        <img ng-src="{{picture.src}}" style="width:200px; height:200px;"  id="testimg"/>
+      </div>
+      <md-button ng-if="ctrl.product.pictures.length < 5" ng-click="ctrl.addMorePics()" ng-disabled="ctrl.viewMode"> Add more picture</md-button>
+
     </md-list-item>
 
       <md-list-item>
