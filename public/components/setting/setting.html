@@ -20,52 +20,33 @@
 			<md-input-container class="md-block" >
 			  <label>Busineess Email</label>
 			  <input required type="text" ng-model="ctrl.editedUser.businessEmail" name="email" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container>
 			<md-input-container class="md-block" >
 			  <label>Busineess Phone No.</label>
 			  <input required type="text" ng-model="ctrl.editedUser.businessPhoneNumber" name="email" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
+
 			</md-input-container>
 			<md-input-container class="md-block" >
 			  <label>website link</label>
 			  <input required type="text" ng-model="ctrl.editedUser.businessWebsiteLink"  ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container>
 			<md-input-container class="md-block" >
 			  <label>Business Address</label>
 			  <input required type="text" ng-model="ctrl.editedUser.businessAddress" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container>
 			<md-input-container class="md-block" >
 			  <label>Business Fax</label>
 			  <input required type="text" ng-model="ctrl.editedUser.businessFax" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container>
 			<md-input-container  >
 			  <label>Business Profile photo or logo</label>
 			  <input type="file" app-filereader ng-model="ctrl.editedUser.profile_pic" ng-disabled="ctrl.viewMode">
               <img ng-src="{{ctrl.editedUser.profile_pic}}" style="width:200px; height:200px;"  id="testimg"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
+
 			</md-input-container>
 			<md-input-container class="md-block" >
 			  <label>Write About your business</label>
 			  <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.editedUser.businessAbout" ng-disabled="ctrl.viewMode"></textarea>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container></br>
 
 
@@ -91,16 +72,10 @@
 			<md-input-container class="md-block" >
 			  <label>Email</label>
 			  <input required type="text" ng-model="ctrl.editedUser.email" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container >
 			<md-input-container class="md-block" >
 			  <label>Phone No.</label>
 			   <input required type="text" ng-model="ctrl.editedUser.phoneNumber" ng-disabled="ctrl.viewMode"/>
-			  <div ng-messages="ctrl.editedUser.$error">
-				<div ng-message="required">This is required.</div>
-			  </div>
 			</md-input-container >
 
 
