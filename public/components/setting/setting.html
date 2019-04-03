@@ -1,69 +1,72 @@
 <md-content>
-  <md-tabs class="" md-dynamic-height>
+  <md-tabs class="md-primary" md-center-tabs md-dynamic-height>
 
     <md-tab label="Profile setting">
       <md-content class="md-padding">
         <md-content>
           <md-list flex>
             <md-subheader class="md-no-sticky">you can edit your business profile details here
-            <md-button class="md-secondary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
-            <md-button class="md-secondary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
+            <md-button class="md-raised md-primary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
+            <md-button class="md-raised md-primary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
             </md-subheader>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Busineess Name</h4>
-              </div>
-                <input required type="text" ng-model="ctrl.editedUser.businessName" name="email" ng-disabled="ctrl.viewMode"/>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Busineess Email</h4>
-              </div>
-              <input required type="text" ng-model="ctrl.editedUser.businessEmail" name="email" ng-disabled="ctrl.viewMode" />
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Busineess Phone No.</h4>
-              </div>
-              <input required type="text" ng-model="ctrl.editedUser.businessPhoneNumber" name="email" ng-disabled="ctrl.viewMode" />
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>website link</h4>
-              </div>
-              <input required type="text" ng-model="ctrl.editedUser.businessWebsiteLink"  ng-disabled="ctrl.viewMode"/>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Business Address</h4>
-              </div>
-              <input required type="text" ng-model="ctrl.editedUser.businessAddress" ng-disabled="ctrl.viewMode"/>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Business Fax</h4>
-              </div>
-              <input required type="text" ng-model="ctrl.editedUser.businessFax" ng-disabled="ctrl.viewMode"/>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-              <div class="md-padding">
-                <h4>Business Profile photo or logo</h4>
-              </div>
-              <input type="file" app-filereader ng-model="ctrl.editedUser.profile_pic" ng-disabled="ctrl.viewMode">
+			
+			<md-input-container class="md-block" >
+			  <label>Busineess Name</label>
+			  <input required name="email" ng-disabled="ctrl.viewMode" ng-model="ctrl.editedUser.businessName"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
+			<md-input-container class="md-block" >
+			  <label>Busineess Email</label>
+			  <input required type="text" ng-model="ctrl.editedUser.businessEmail" name="email" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container class="md-block" >
+			  <label>Busineess Phone No.</label>
+			  <input required type="text" ng-model="ctrl.editedUser.businessPhoneNumber" name="email" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container class="md-block" >
+			  <label>website link</label>
+			  <input required type="text" ng-model="ctrl.editedUser.businessWebsiteLink"  ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container class="md-block" >
+			  <label>Business Address</label>
+			  <input required type="text" ng-model="ctrl.editedUser.businessAddress" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container class="md-block" >
+			  <label>Business Fax</label>
+			  <input required type="text" ng-model="ctrl.editedUser.businessFax" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container  >
+			  <label>Business Profile photo or logo</label>
+			  <input type="file" app-filereader ng-model="ctrl.editedUser.profile_pic" ng-disabled="ctrl.viewMode">
               <img ng-src="{{ctrl.editedUser.profile_pic}}" style="width:200px; height:200px;"  id="testimg"/>
-            </md-list-item>
-            <md-divider></md-divider>  <md-divider></md-divider>
-            <md-input-container class="md-block" class="md-padding">
-              <label>Write About your business</label>
-              <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.editedUser.businessAbout" ng-disabled="ctrl.viewMode"></textarea>
-            </md-input-container>
-
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container>
+			<md-input-container class="md-block" >
+			  <label>Write About your business</label>
+			  <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.editedUser.businessAbout" ng-disabled="ctrl.viewMode"></textarea>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container></br>
 
 
       </md-content>
@@ -74,39 +77,39 @@
         <md-content class="md-padding">
             <md-list flex>
               <md-subheader class="md-no-sticky">you can edit your personal details here
-              <md-button class="md-secondary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
-              <md-button class="md-secondary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
+              <md-button class="md-raised md-primary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
+              <md-button class="md-raised md-primary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
             </md-subheader>
+			
+			<md-input-container class="md-block" >
+			  <label>Full Name</label>
+			  <input required type="text" ng-model="ctrl.editedUser.name" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
+			<md-input-container class="md-block" >
+			  <label>Email</label>
+			  <input required type="text" ng-model="ctrl.editedUser.email" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
+			<md-input-container class="md-block" >
+			  <label>Phone No.</label>
+			   <input required type="text" ng-model="ctrl.editedUser.phoneNumber" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
 
-              <md-list-item>
-                <div class="md-padding">
-                  <h4>Full Name</h4>
-                </div>
-                <div class="">
-                  <input required type="text" ng-model="ctrl.editedUser.name" ng-disabled="ctrl.viewMode"/>
-                </div>
-              </md-list-item>
-              <md-divider></md-divider>
-              <md-list-item>
-                <div class="md-padding">
-                  <h4>Email</h4>
-                </div>
-                <input required type="text" ng-model="ctrl.editedUser.email" ng-disabled="ctrl.viewMode"/>
-              </md-list-item>
-              <md-divider></md-divider>
-              <md-list-item>
-                <div class="md-padding">
-                  <h4>Phone No.</h4>
-                </div>
-                <input required type="text" ng-model="ctrl.editedUser.phoneNumber" ng-disabled="ctrl.viewMode"/>
-              </md-list-item>
 
-              <md-list-item>
-                <div class="md-padding">
-                  <h4>DOB</h4>
-                </div>
-                <input required type="text" ng-model="ctrl.editedUser.dob" ng-disabled="ctrl.viewMode"/>
-              </md-list-item>
+			<div flex-gt-xs>
+			  <h4>DOB</h4>
+			  <md-datepicker required type="text" ng-model="ctrl.editedUser.dob" ng-disabled="ctrl.viewMode"  md-placeholder="Enter date" md-open-on-focus></md-datepicker>
+			</div>
+
+			
       </md-content>
     </md-tab>
 
@@ -115,25 +118,29 @@
       <md-content class="md-padding">
         <md-list flex>
           <md-subheader class="md-no-sticky">you can edit your Account details here
-          <md-button class="md-secondary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
-          <md-button class="md-secondary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
+          <md-button class="md-raised md-primary" ng-click="ctrl.editProfile()" ng-disabled="!ctrl.viewMode">Edit</md-button>
+          <md-button class="md-raised md-primary" ng-click="ctrl.updateProfile()" ng-disabled="ctrl.viewMode">Save</md-button>
         </md-subheader>
 
-          <md-list-item>
-            <div class="md-padding">
-              <h4>Username</h4>
-            </div>
-            <input required type="text" ng-model="ctrl.editedUser.email" ng-disabled="ctrl.viewMode"/>
-          </md-list-item>
+
+
+			<md-input-container class="md-block" >
+			  <label>Username</label>
+			  <input required type="text" ng-model="ctrl.editedUser.email" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
+			<md-input-container class="md-block" >
+			  <label>Password</label>
+			  <input required type="password" ng-model="ctrl.editedUser.password" ng-disabled="ctrl.viewMode"/>
+			  <div ng-messages="ctrl.editedUser.$error">
+				<div ng-message="required">This is required.</div>
+			  </div>
+			</md-input-container >
           <md-divider></md-divider>
           <md-list-item>
-            <div class="md-padding">
-              <h4>Password</h4>
-            </div>
-            <input required type="password" ng-model="ctrl.editedUser.password" ng-disabled="ctrl.viewMode"/>
-          </md-list-item>
-          <md-list-item>
-            <div class="md-padding">
+            <div>
               <h4>Deactivate account</h4>
             </div>
             <md-switch ng-model="ctrl.editedUser.activate" aria-label="Switch 1">Switch 1: {{ data.cb1 }}</md-switch>
