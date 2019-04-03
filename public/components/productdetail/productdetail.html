@@ -1,8 +1,19 @@
 <md-content class="md-padding" layout="column" >
-  <div class="">
-    <pic-scroller pictures="ctrl.product.pictures"></pic-scroller>
-  </div>
-  <div>Product Name: {{ctrl.product.name}}</div>
-  <div>Product About: {{ctrl.product.about}}</div>
-  <div>Product Price: {{ctrl.product.price}}</div>
+
+  <md-card >
+    <div  layout-align="center center" class=""style="width:500px; height:500px;" >
+      <pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
+    </div>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{ctrl.product.name}}</span>
+        <h6>Price:{{ctrl.product.price}}</h6>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      <h5>About</h5>
+      <p>{{ctrl.product.about}}</p>
+    </md-card-content>
+  </md-card>
+
 </md-content>

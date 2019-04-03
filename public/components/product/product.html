@@ -2,12 +2,12 @@
 <div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
   <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="30">
        <md-card  class="product-card">
-         <div class="">
-           <pic-scroller pictures="productItem.pictures"></pic-scroller>
+         <div class="" style="width:200px; height:200px;" >
+           <pic-scroller  pictures="productItem.pictures"></pic-scroller>
          </div>
          <md-card-title>
            <md-card-title-text>
-             <span class="md-headline">{{productItem.name}}</span>
+             <span ui-sref="khojiApp.productdetail({product:productItem})" class="md-headline">{{productItem.name}}</span>
            </md-card-title-text>
          </md-card-title>
          <md-card-content>
