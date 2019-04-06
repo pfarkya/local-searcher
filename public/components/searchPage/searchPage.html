@@ -1,0 +1,20 @@
+<div class="">
+
+  <div layout-wrap class="md-padding" layout="row">
+    <md-card ng-repeat="profile in ctrl.profiles" layout="row">
+      <div >
+         <img Class="profile_pic" src="https://fch.lisboa.ucp.pt/sites/default/files/styles/asset_square/public/assets/images/avatar-fch_9.png?itok=3yXhnOuB"/>
+      </div>
+
+      <div layout="column"class="md-padding">
+          <h2 ui-sref="khojiApp.profileview.about({profileId:profile._id})">{{profile.businessName}}</h2>
+          <p>Specilities</p>
+          <p>Contact</p>
+          <p>Web link</p>
+          <md-button ui-sref="khojiApp.profileview({profileId:profile._id})" >profile view page redirect link</md-button>
+      </div>
+    </md-card>
+  </div>
+
+
+</div>

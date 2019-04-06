@@ -1,0 +1,61 @@
+<md-toolbar class="md-hue-2">
+
+  <div class="md-toolbar-tools">
+
+    <md-button class="md-icon-button" aria-label="Settings" ng-click="ctrl.toggleSidenav()">
+      <i class="fas fa-bars"></i>
+    </md-button>
+
+
+      <h2 layout-padding ui-sref="khojiApp" >Finddy</h2>
+
+
+      <div layout="row"  layout-align="start center">
+        <md-input-container class="bar">
+          <label>Search for any thing</label>
+          <input ng-model="ctrl.search" >
+        </md-input-container>
+
+        <div class="" layout-padding>
+          <md-button ui-sref="khojiApp.searchPage({q:ctrl.search})"><i class="fas fa-search"></i>Search</md-button>
+        </div>
+      </div>
+
+    <span class="spacer"></span>
+
+    <md-menu ng-if="ctrl.loginService.isLogin()">
+      <md-button class="md-icon-button" ng-click="$mdOpenMenu()" aria-label="leftmenu">
+          <md-icon md-font-icon="fa fa-user-circle"></md-icon>
+      </md-button>
+      <md-menu-content width="3" ng-mouseleave="$mdMenu.close()">
+        <md-menu-item>
+          <md-button ui-sref="khojiApp.profile.about"><md-icon md-font-icon="fa fa-user"></md-icon>profile</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+          <md-button><md-icon md-font-icon="fa fa-file"></md-icon>Account Details</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+        <md-button ui-sref="khojiApp.enterprises"><md-icon md-font-icon="fa fa-elementor"></md-icon>Enterprises</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+          <md-button ui-sref="khojiApp.setting"><md-icon md-font-icon="fa fa-cog"></md-icon>Setting</md-button>
+        </md-menu-item>
+
+        <md-menu-item>
+        <md-button ng-click="ctrl.logout()"><md-icon md-font-icon="fa fa-sign-out-alt"></md-icon>logout</md-button>
+        </md-menu-item>
+
+      </md-menu-content>
+      </md-menu>
+
+      <div layout="row" ng-if="!ctrl.loginService.isLogin()">
+        <md-button ui-sref="khojiApp.register">Register</md-button>
+        <md-button ui-sref="khojiApp.login">login</md-button>
+      </div>
+    </div>
+</md-toolbar>
+
+<br>

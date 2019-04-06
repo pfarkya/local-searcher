@@ -1,0 +1,43 @@
+  <div>
+    <md-content class="md-padding">
+    <md-list flex>
+      <md-button ui-sref="khojiApp.profile.product"  class="md-secondary" >GO to Product page</md-button>
+      <md-subheader class="md-no-sticky">Edit Product details
+      <md-button ng-disabled="!ctrl.viewMode" ng-click="ctrl.editMode()" class="md-secondary" >Edit</md-button>
+      <md-button ng-disabled="ctrl.viewMode" ng-click="ctrl.saveProduct()" class="md-secondary" >Save</md-button>
+
+    </md-subheader>
+    <md-divider></md-divider>
+    <md-list-item>
+      <div class="md-padding">
+        <h4>Product photos</h4>
+      </div>
+      <div ng-repeat="picture in ctrl.product.pictures">
+        <input type="file" app-filereader ng-model="picture.src" ng-disabled="ctrl.viewMode">
+        <img ng-src="{{picture.src}}" style="width:200px; height:200px;"  id="testimg"/>
+      </div>
+      <md-button ng-if="ctrl.product.pictures.length < 5" ng-click="ctrl.addMorePics()" ng-disabled="ctrl.viewMode"> Add more picture</md-button>
+
+    </md-list-item>
+
+      <md-list-item>
+        <div class="md-padding">
+          <h4>Product Name</h4>
+        </div>
+        <input required type="text" ng-model="ctrl.product.name" ng-disabled="ctrl.viewMode"/>
+      </md-list-item>
+
+      <md-list-item>
+        <div class="md-padding">
+          <h4>Price</h4>
+        </div>
+        <input required type="text" ng-model="ctrl.product.price" ng-disabled="ctrl.viewMode"/>
+      </md-list-item>
+      <md-input-container class="md-block" class="md-padding">
+        <label>Write About your Product</label>
+        <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.product.about" ng-disabled="ctrl.viewMode"></textarea>
+      </md-input-container>
+      <md-divider></md-divider>
+      </md-list>
+  </md-content>
+</div>

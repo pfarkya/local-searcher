@@ -1,0 +1,37 @@
+<div class="">
+  <div layout="column" layout-align="center center" layout-fill="layout-fill">
+      <div layout="column" class="loginBox md-whiteframe-z1">
+        <md-toolbar>
+          <h2 class="md-toolbar-tools"><span>Login</span></h2>
+        </md-toolbar>
+        <form name="loginForm">
+          <md-content layout="column" class="md-padding">
+            <md-input-container>
+              <label>Email</label>
+              <input required type="text" ng-model="ctrl.loginModel.email" name="username" />
+              <div ng-messages="loginForm.username.$error">
+                <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
+            <md-input-container>
+              <label>Password</label>
+              <input required type="password" ng-model="ctrl.loginModel.password" name="password" />
+              <div ng-messages="loginForm.password.$error" role="alert">
+                <div ng-message="required">This is required.</div>
+              </div>
+            </md-input-container>
+
+            <md-checkbox>Remember password</md-checkbox>
+            <div layout="row" layout-align="center center">
+              <md-button type="submit" ng-click="ctrl.login()" class="md-raised md-primary">Login</md-button>
+              <div flex="flex"></div>
+              <md-button md-no-ink ng-disabled>Forgot Password</md-button>
+            </div>
+            <md-divider></md-divider>
+
+            <md-button ui-sref="khojiApp.register" md-no-ink>Sign Up</md-button>
+          </md-content>
+        </form>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="picScroller">
+  <button ng-if="ctrl.pictures.length > 1" ng-click="ctrl.prev()" ng-disabled="ctrl.count===0" class="leftArrow"><</button>
+  <img ng-if="ctrl.pictures[ctrl.count]" ng-src={{ctrl.pictures[ctrl.count].src}} />
+  <button ng-if="ctrl.pictures.length > 1"ng-click="ctrl.next()" ng-disabled="ctrl.count===(ctrl.pictures.length -1)" class="rightArrow">></button>
+</div>

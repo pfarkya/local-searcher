@@ -1,0 +1,48 @@
+<div class="">
+  <form name="regForm" role="form" submit="ctrl.registerEnterprise()">
+      <md-input-container class="md-icon-float md-block">
+          <label>Enterprise Phone Number</label>
+          <input required type="number" name="phoneNumber" ng-model="ctrl.enterprise.phoneNumber">
+          <div ng-messages="regForm.phoneNumber.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block">
+          <label>Enterprise Name: </label>
+          <input required md-maxlength="35" type="text" name="username" ng-model="ctrl.enterprise.name">
+          <div ng-messages="regForm.username.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The user name must be less than 35 characters long.</div>
+          </div>
+      </md-input-container>
+
+      <md-input-container class="md-block">
+          <label>Enterprise Email</label>
+          <input required type="email" name="useremail" ng-model="ctrl.enterprise.email"
+                 minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+          <div ng-messages="regForm.useremail.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Your email must be between 10 and 100 characters long and look like an e-mail address.
+              </div>
+          </div>
+      </md-input-container>
+
+
+      <md-input-container class="md-block">
+          <label>Enterprise address</label>
+          <input required type="text" name="address" ng-model="ctrl.enterprise.address"
+                 minlength="10" maxlength="100" />
+
+          <div ng-messages="regForm.address.$error" role="alert">
+              <div ng-message-exp="['required', 'minlength', 'maxlength']">
+              Your email must be between 10 and 100 characters long and look like an e-mail address.
+              </div>
+          </div>
+      </md-input-container>
+
+      <md-button type="submit" ng-click="ctrl.registerEnterprise()"  ng-disabled="regForm.$invalid">Submit</md-button>
+
+  </form>
+</div>

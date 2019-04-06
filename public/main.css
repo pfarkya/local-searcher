@@ -1,0 +1,91 @@
+.spacer{
+  flex: 1 1 auto;
+}
+
+
+.header {
+  margin: auto;
+  background-color: #3f51b5;
+  padding-left: 10px;
+  min-height: 70px;
+  max-height: 100px;
+}
+
+.headerRight {
+  margin-right: 10px;
+}
+
+.tabable:hover {
+  background-color: #596bcf;
+}
+
+.color_o {
+  background-color: #c13e13;
+}
+
+.profile_pic {
+  height: 150px;
+  width: 150px;
+  background-color: powderblue;
+  border-style: solid;
+  border-width: 1px;
+  border-color: DodgerBlue;
+}
+
+.bar{
+	width: 400px;
+	padding: 0px;
+	margin: 20px auto 0px;
+	position:relative;
+}
+
+
+.product-card {
+
+}
+
+.productdetail_button{
+  height: 40px;
+  width: 100px;
+  background-color: powderblue;
+  text-decoration-color: #c13e13;
+}
+img.sidenavProfileImg {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+h2.sidenavCompanyName.ng-binding {
+    color: grey;
+    border-left: 4px solid blue;
+    padding-left: 10px;
+}
+
+.sidenavMenuItem {
+    cursor: pointer;
+    font-size: larger;
+    font-weight: 600;
+    color: blue;
+    padding: 5px;
+}
+
+.sidenavMenuItem:hover {
+   background-color: lightgrey;
+}
+
+.picScroller {
+  position: relative;
+}
+
+.picScroller > .rightArrow {
+  position: absolute;
+  top: calc(50% - 5px);
+  right: 0px;
+}
+
+.picScroller > .leftArrow {
+  position: absolute;
+  top: calc(50% - 5px);
+}

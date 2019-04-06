@@ -1,0 +1,16 @@
+<div class="">
+  Here is the list of enterprises
+  <button type="button" name="button" ng-click="ctrl.createEnterprise()">Create Enterprise</button>
+
+  <div class="" ng-repeat="enterprise in ctrl.enterpriseList">
+    <div class="">
+      Name: {{enterprise.name}}
+    </div>
+    <div class="">
+      Address: {{enterprise.address}}
+    </div>
+    <button type="button" name="button" ng-click="ctrl.gotoEnterprise(enterprise._id)">
+      Open Enterprise
+    </button>
+  </div>
+</div>

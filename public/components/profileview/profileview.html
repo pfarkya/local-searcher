@@ -1,0 +1,94 @@
+<div class="md-padding" layout="row" layout-xs="column" layout-align-xs="center center">
+
+    <div layout-align-xs="center center">
+       <img Class="profile_pic" src="https://fch.lisboa.ucp.pt/sites/default/files/styles/asset_square/public/assets/images/avatar-fch_9.png?itok=3yXhnOuB"/>
+    </div>
+
+    <div layout-xs="column" layout-align-xs="center center" flex >
+      <div class="md-padding">
+        <h2>Company Name :  {{ctrl.user.businessName}}</h2>
+        <h4>Specility</h4>
+      </div>
+
+
+      <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="">
+
+          <md-tab label="About">
+            <md-content class="md-padding" >
+              <div layout="row" layout-xs="column" layout-align-md="start start" layout-align="start start">
+                  <md-card flex-xs="100" flex-gt-xs="50">
+                    <md-list-item >
+                        <h6>Company Name :  {{ctrl.user.businessName}}</h6>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <h6>Email : {{ctrl.user.businessEmail}}</h6>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <h6>Phone No. :  {{ctrl.user.businessPhoneNumber}}</h6>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <h6>website :  {{ctrl.user.businessWebsiteLink}}</h6>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <h6>Business Address :  {{ctrl.user.businessAddress}}</h6>
+                    </md-list-item>
+                    <md-divider></md-divider>
+                    <md-list-item>
+                        <h6>Business Fax :  {{ctrl.user.businessFax}}</h6>
+                    </md-list-item>
+                  </md-card>
+
+                  <md-card >
+                    <md-card-title>
+                      <md-card-title-text>
+                        <span class="md-headline">About</span>
+                      </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content style="text-align: top">
+                      <p>{{ctrl.user.businessAbout}}</p>
+                    </md-card-content>
+                    <br>
+                  </md-card>
+            </div>
+            </md-content>
+          </md-tab>
+
+          <md-tab label="Photos">
+              <md-content class="md-padding">
+              </md-content>
+          </md-tab>
+
+          <md-tab label="Products">
+                <div ng-repeat="productItem in ctrl.productList"class="productCard" flex>
+                   <md-card  class="product-card">
+                     <img ng-src="" class="md-card-image" alt="Washed Out">
+                     <md-card-title>
+                       <md-card-title-text>
+                         <span class="md-headline">{{productItem.name}}</span>
+                       </md-card-title-text>
+                     </md-card-title>
+                     <md-card-content>
+                       <p>
+                         {{productItem.price}}
+                       </p>
+                     </md-card-content>
+                   </md-card>
+                 </div>
+          </md-tab>
+
+          <md-tab label="Services">
+            <md-content class="md-padding">
+              <p>service page</p>
+            </md-content>
+          </md-tab>
+
+        </md-tabs>
+      </md-content>
+
+    </div>
+</div>
