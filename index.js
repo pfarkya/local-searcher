@@ -283,7 +283,39 @@ app.put('/updateProducts', function(req, res) {
   })
 })
 
+app.put('/updateServices', function(req, res) {
+  productsDb.find({selector:{_id:req.body._id}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+
+      productsDb.insert(Object.assign({},req.body, {_rev:result.docs[0]._rev}), function(err, body, header) {
+        if (err) {
+          return res.status(500).send(err)
+        }
+        return res.status(200).send({_rev: body._rev})
+      })
+    }
+  })
+})
+
 app.get('/getProfileProducts', function() {
+  productsDb.find({selector:{providerId:req.body.providerId}}, function(er, result) {
+    if (er) {
+      return res.status(500).send(er)
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:'no user found'})
+    } else {
+      return res.status(200).send(result.docs)
+    }
+  })
+})
+
+app.get('/getProfileServices', function() {
   productsDb.find({selector:{providerId:req.body.providerId}}, function(er, result) {
     if (er) {
       return res.status(500).send(er)
@@ -321,12 +353,53 @@ app.post('/addProducts', function(req, res) {
   });
 })
 
+app.post('/addServices', function(req, res) {
+  productsDb.find({selector:{providerId:req.body.providerId, name: req.body.name}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+    } else {
+      res.status(409).send({message:"already service exist please update same"})
+    }
+  });
+})
+
 app.get('/all_products', function(req, res) {
   var ownerId = req.session.user._id
   if(req.query && req.query.ownerId) {
     ownerId = req.query.ownerId
   }
   productsDb.find({selector:{ownerId:ownerId, type:'product'}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    res.status(200).send(result.docs)
+  });
+})
+
+app.get('/all_services', function(req, res) {
+  var ownerId = req.session.user._id
+  if(req.query && req.query.ownerId) {
+    ownerId = req.query.ownerId
+  }
+  productsDb.find({selector:{ownerId:ownerId, type:'service'}}, function(er, result) {
     if (er) {
       res.status(500).send(er)
     }
@@ -362,6 +435,31 @@ app.put('/edit_product', function(req, res) {
     }
   });
 })
+app.put('/edit_service', function(req, res) {
+  productsDb.find({selector:{_id:req.body._id}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:"service not found"})
+    } else {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+
+    }
+  });
+})
 
 app.post('/add_product', function(req, res) {
   productsDb.find({selector:{ownerId:req.body.ownerId, name: req.body.name, type: 'product'}}, function(er, result) {
@@ -383,7 +481,31 @@ app.post('/add_product', function(req, res) {
         res.status(201).send(body)
       })
     } else {
-      res.status(409).send({message:"already producct exist please update same"})
+      res.status(409).send({message:"already product exist please update same"})
+    }
+  });
+})
+app.post('/add_service', function(req, res) {
+  productsDb.find({selector:{ownerId:req.body.ownerId, name: req.body.name, type: 'service'}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      productsDb.insert(req.body,function(errr, body, headers) {
+        if (errr) {
+          console.log('[productsDb.insert] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(201).send(body)
+      })
+    } else {
+      res.status(409).send({message:"already service exist please update same"})
     }
   });
 })

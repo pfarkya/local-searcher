@@ -118,38 +118,7 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           }
         }
       })
-      .state('khojiApp.enterprise.products', {
-        url: '/products',
-        views: {
-          "enterpriseContent@khojiApp.enterprise": {
-            templateUrl: "/components/productList/productList.html"
-          }
-        }
-      })
-      .state('khojiApp.enterprise.createProduct', {
-        url: '/products/create',
-        views: {
-          "enterpriseContent@khojiApp.enterprise": {
-            templateUrl: "/components/createProduct/createProduct.html"
-          }
-        }
-      })
-      .state('khojiApp.enterprise.editProduct', {
-        url: '/products/:productId/edit',
-        views: {
-          "enterpriseContent@khojiApp.enterprise": {
-            templateUrl: "/components/editProduct/editProduct.html"
-          }
-        }
-      })
-      .state('khojiApp.enterprise.viewProduct', {
-        url: '/products/:productId/view',
-        views: {
-          "enterpriseContent@khojiApp.enterprise": {
-            templateUrl: "/components/viewProduct/viewProduct.html"
-          }
-        }
-      })
+
       .state('khojiApp.profile', {
         url: '/profile',
         views: {
@@ -180,6 +149,16 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           }
         }
       })
+      .state('khojiApp.service', {
+        url: '/service',
+        views: {
+          "content@": {
+            templateUrl: "/components/service/service.html",
+            controller: 'serviceCtrl',
+            controllerAs: 'ctrl'
+          }
+        }
+      })
       .state('khojiApp.productedit', {
         url: '/productedit',
         views: {
@@ -193,12 +172,38 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
           isAddProduct: false
         }
       })
+      .state('khojiApp.serviceedit', {
+        url: '/serviceedit',
+        views: {
+          "content@": {
+            templateUrl: "/components/serviceedit/serviceedit.html",
+            controller: 'serviceeditCtrl',
+            controllerAs: 'ctrl'
+          }
+        },params: {
+          product: undefined,
+          isAddProduct: false
+        }
+      })
       .state('khojiApp.productdetail', {
         url: '/productdetail',
         views: {
           "content@": {
             templateUrl: "/components/productdetail/productdetail.html",
             controller: 'productdetailCtrl',
+            controllerAs: 'ctrl'
+          }
+        },
+        params: {
+          product: undefined
+        }
+      })
+      .state('khojiApp.servicedetail', {
+        url: '/servicedetail',
+        views: {
+          "content@": {
+            templateUrl: "/components/productdetail/servicedetail.html",
+            controller: 'servicedetailCtrl',
             controllerAs: 'ctrl'
           }
         },

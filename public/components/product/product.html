@@ -3,7 +3,7 @@
   <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="30">
        <md-card  class="product-card">
          <div class="" style="width:200px; height:200px;" >
-           <pic-scroller  pictures="productItem.pictures"></pic-scroller>
+          <img Class="product_pic" ng-src="{{ctrl.productItem.pictures[0]}}" />
          </div>
          <md-card-title>
            <md-card-title-text>
@@ -16,7 +16,7 @@
            </p>
          </md-card-content>
          <md-button ng-if="!ctrl.previewMode" ui-sref="khojiApp.productedit({product:productItem})" class="md-raised md-primary"> Edit </md-button>
-         <md-button ng-if="ctrl.previewMode" ui-sref="khojiApp.productdetail({product:productItem})" class="md-raised md-primary"> View </md-button>
+         <md-button ng-if="ctrl.previewMode" ui-srefsss="khojiApp.productdetail({product:productItem})" class="md-raised md-primary"> View </md-button>
        </md-card>
     </div>
   <md-button ng-if="!ctrl.previewMode" layout="row" layout-align="center center" ui-sref="khojiApp.productedit({isAddProduct:true})" style="display:flex;"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>

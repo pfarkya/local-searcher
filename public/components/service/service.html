@@ -1,1 +1,24 @@
-<p>service page</p>
+<md-content class="md-padding" layout="row">
+<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
+  <div ng-repeat="serviceItem in ctrl.serviceList" class="productCard" flex="30">
+       <md-card  class="service-card">
+         <div class="" style="width:200px; height:200px;" >
+          <img Class="service_pic" ng-src="{{ctrl.service.pictures[0]}}"/>
+         </div>
+         <md-card-title>
+           <md-card-title-text>
+             <span ui-sref="khojiApp.servicedetail({service:serviceItem})" class="md-headline">{{serviceItem.name}}</span>
+           </md-card-title-text>
+         </md-card-title>
+         <md-card-content>
+           <p>
+             {{serviceItem.price}}
+           </p>
+         </md-card-content>
+         <md-button ng-if="!ctrl.previewMode" ui-sref="khojiApp.serviceedit({service:serviceItem})" class="md-raised md-primary"> Edit </md-button>
+         <md-button ng-if="ctrl.previewMode" ui-sref="khojiApp.servicedetail({service:serviceItem})" class="md-raised md-primary"> View </md-button>
+       </md-card>
+    </div>
+  <md-button ng-if="!ctrl.previewMode" layout="row" layout-align="center center" ui-sref="khojiApp.serviceedit({isAddService:true})" style="display:flex;"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>
+</div>
+</md-content>

@@ -1,0 +1,43 @@
+  <div>
+    <md-content class="md-padding">
+    <md-list flex>
+      <md-button ui-sref="khojiApp.profile.service"  class="md-secondary" >GO to Service page</md-button>
+      <md-subheader class="md-no-sticky">Edit Service details
+      <md-button ng-disabled="!ctrl.viewMode" ng-click="ctrl.editMode()" class="md-secondary" >Edit</md-button>
+      <md-button ng-disabled="ctrl.viewMode" ng-click="ctrl.saveProduct()" class="md-secondary" >Save</md-button>
+
+    </md-subheader>
+    <md-divider></md-divider>
+    <md-list-item>
+      <div class="md-padding">
+        <h4>Service photos</h4>
+      </div>
+      <div ng-repeat="picture in ctrl.service.pictures">
+        <input type="file" app-filereader ng-model="picture.src" ng-disabled="ctrl.viewMode">
+        <img ng-src="{{picture.src}}" style="width:200px; height:200px;"  id="testimg"/>
+      </div>
+      <md-button ng-if="ctrl.service.pictures.length < 5" ng-click="ctrl.addMorePics()" ng-disabled="ctrl.viewMode"> Add more picture</md-button>
+
+    </md-list-item>
+
+      <md-list-item>
+        <div class="md-padding">
+          <h4>Service Name</h4>
+        </div>
+        <input required type="text" ng-model="ctrl.service.name" ng-disabled="ctrl.viewMode"/>
+      </md-list-item>
+
+      <md-list-item>
+        <div class="md-padding">
+          <h4>Rate</h4>
+        </div>
+        <input required type="text" ng-model="ctrl.service.price" ng-disabled="ctrl.viewMode"/>
+      </md-list-item>
+      <md-input-container class="md-block" class="md-padding">
+        <label>Write About your service</label>
+        <textarea required type="text" md-maxlength="200" rows="5" md-select-on-focus ng-model="ctrl.service.about" ng-disabled="ctrl.viewMode"></textarea>
+      </md-input-container>
+      <md-divider></md-divider>
+      </md-list>
+  </md-content>
+</div>
