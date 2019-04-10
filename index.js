@@ -435,6 +435,33 @@ app.put('/edit_product', function(req, res) {
     }
   });
 })
+
+app.delete('/delete_product', function(req, res) {
+  productsDb.find({selector:{_id:req.query.productId}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:"product not found"})
+    } else {
+      productsDb.destroy(result.docs[0]._id, result.docs[0]._rev,function(errr) {
+        if (errr) {
+          console.log('[productsDb.delete] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(202).send({"message": "deleted"})
+      })
+
+    }
+  });
+})
+
 app.put('/edit_service', function(req, res) {
   productsDb.find({selector:{_id:req.body._id}}, function(er, result) {
     if (er) {
@@ -455,6 +482,32 @@ app.put('/edit_service', function(req, res) {
           res.status(500).send({error:"try again"})
         }
         res.status(201).send(body)
+      })
+
+    }
+  });
+})
+
+app.delete('/delete_service', function(req, res) {
+  productsDb.find({selector:{_id:req.query.serviceId}}, function(er, result) {
+    if (er) {
+      res.status(500).send(er)
+    }
+    console.log("asdf",{er,result})
+    console.log("asdf",JSON.stringify(result))
+    console.log('Found %d documents with name Alice', result.docs.length);
+    for (var i = 0; i < result.docs.length; i++) {
+      console.log('  Doc id: %s', result.docs[i]._id);
+    }
+    if(result.docs.length === 0) {
+      res.status(404).send({message:"product not found"})
+    } else {
+      productsDb.destroy(result.docs[0]._id, result.docs[0]._rev,function(errr) {
+        if (errr) {
+          console.log('[productsDb.delete] ', err.message)
+          res.status(500).send({error:"try again"})
+        }
+        res.status(202).send({"message": "deleted"})
       })
 
     }

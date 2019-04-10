@@ -3,7 +3,7 @@
   <div ng-repeat="serviceItem in ctrl.serviceList" class="productCard" flex="30">
        <md-card  class="service-card">
          <div class="" style="width:200px; height:200px;" >
-          <img Class="service_pic" ng-src="{{ctrl.service.pictures[0]}}"/>
+          <img Class="service_pic" ng-src="{{serviceItem.pictures[0].src}}"/>
          </div>
          <md-card-title>
            <md-card-title-text>

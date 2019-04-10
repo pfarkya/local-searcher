@@ -109,4 +109,66 @@ angular.module('khoziApp').service('login',['$http',function($http){
        data : product
      })
   }
+
+  self.deleteProduct = function(productId) {
+    return $http({
+       method : "DELETE",
+       url : "/delete_product?productId=" + productId,
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
+
+  self.getServices = function() {
+    return $http({
+       method : "GET",
+       url : "/all_services",
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
+
+  self.getServicesByOwnerId = function(ownerId) {
+    return $http({
+       method : "GET",
+       url : "/all_services?ownerId=" + ownerId,
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
+  self.addService = function(service) {
+    service.ownerId = self.getUserDetail()._id;
+    service.type = 'service'
+    return $http({
+       method : "POST",
+       url : "/add_service",
+       headers: {
+         'Content-Type': "application/json"
+       },
+       data : service
+     })
+  }
+  self.editService = function(service) {
+    return $http({
+       method : "PUT",
+       url : "/edit_service",
+       headers: {
+         'Content-Type': "application/json"
+       },
+       data : service
+     })
+  }
+
+  self.deleteService = function(serviceId) {
+    return $http({
+       method : "DELETE",
+       url : "/delete_service?serviceId=" + serviceId,
+       headers: {
+         'Content-Type': "application/json"
+       }
+     })
+  }
 }])

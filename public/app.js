@@ -181,8 +181,8 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
             controllerAs: 'ctrl'
           }
         },params: {
-          product: undefined,
-          isAddProduct: false
+          service: undefined,
+          isAddService: false
         }
       })
       .state('khojiApp.productdetail', {
@@ -202,13 +202,13 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
         url: '/servicedetail',
         views: {
           "content@": {
-            templateUrl: "/components/productdetail/servicedetail.html",
+            templateUrl: "/components/servicedetail/servicedetail.html",
             controller: 'servicedetailCtrl',
             controllerAs: 'ctrl'
           }
         },
         params: {
-          product: undefined
+          service: undefined
         }
       })
       .state('khojiApp.profile.product', {
