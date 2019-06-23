@@ -1,30 +1,28 @@
 <md-content class="md-padding" >
-  <div layout="row" layout-xs="column" layout-align-md="start start" layout-align="start start">
+  <div layout="row" layout-xs="column" layout-align-md="start start" layout-align="start start" class="fontstyle">
       <md-card flex-xs="100" flex-gt-xs="50">
-        <md-list-item >
-            <h6>Company Name :  {{ctrl.user.businessName}}</h6>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-            <h6>Email : {{ctrl.user.businessEmail}}</h6>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-            <h6>Phone No. :  {{ctrl.user.businessPhoneNumber}}</h6>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-            <h6>website :  {{ctrl.user.businessWebsiteLink}}</h6>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-            <h6>Business Address :  {{ctrl.user.businessAddress}}</h6>
-        </md-list-item>
-        <md-divider></md-divider>
-        <md-list-item>
-            <h6>Business Fax :  {{ctrl.user.businessFax}}</h6>
-        </md-list-item>
+	  
+	  
+		<md-card-content 
+          <h5><b>Company Name :</b>  {{ctrl.user.businessName}}</h5>
+        </md-card-content>
+		<md-card-content 
+          <h5><b>Email :</b> {{ctrl.user.businessEmail}}</h5>
+        </md-card-content>
+		<md-card-content 
+          <h5><b>Phone No. :</b>  {{ctrl.user.businessPhoneNumber}}</h5>
+        </md-card-content>
+		<md-card-content 
+           <h5><b>website :</b>  {{ctrl.user.businessWebsiteLink}}</h5>
+        </md-card-content>
+		<md-card-content 
+          <h5><b>Business Address :</b>  {{ctrl.user.businessAddress}}</h5>
+        </md-card-content>
+		<md-card-content 
+          <h5><b>Business Fax :</b>  {{ctrl.user.businessFax}}</h5>
+        </md-card-content>
       </md-card>
+	  
 
       <md-card >
         <md-card-title>
@@ -32,12 +30,51 @@
             <span class="md-headline">About</span>
           </md-card-title-text>
         </md-card-title>
-        <md-card-content style="text-align: top">
+        <md-card-content style="text-align: top" ng-show="ctrl.user.businessAbout">
           <p>{{ctrl.user.businessAbout}}</p>
+        </md-card-content>
+		<md-card-content  style="text-align: top"  ng-show="!ctrl.user.businessAbout" ui-sref="khojiApp.setting">
+		  <a href="">Add a couple of words about who you are.</a>
+        </md-card-content>
+        <br>
+      </md-card>
+</div>
+
+<div layout="row" layout-xs="column" layout-align-md="start start" layout-align="start start" class="fontstyle">
+	  <md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">activity</span>
+          </md-card-title-text>
+        </md-card-title>
+		<md-card-content  style="text-align: top"  >
+		  <a href="">Add a couple of words about your activity.</a>
+        </md-card-content>
+        <br>
+      </md-card>
+	  <md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">activity</span>
+          </md-card-title-text>
+        </md-card-title>
+		<md-card-content  style="text-align: top"  >
+		  <a href="">Add a couple of words about your activity.</a>
+        </md-card-content>
+        <br>
+      </md-card>
+	  <md-card >
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">activity</span>
+          </md-card-title-text>
+        </md-card-title>
+		<md-card-content  style="text-align: top"  >
+		  <a href="">Add a couple of words about your activity.</a>
         </md-card-content>
         <br>
       </md-card>
 
-
 </div>
+
 </md-content>

@@ -1,24 +1,33 @@
 <md-content class="md-padding" layout="row">
 <div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
-  <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="30">
-       <md-card  class="product-card">
-         <div class="" style="width:200px; height:200px;" >
-          <img Class="product_pic" ng-src="{{productItem.pictures[0].src}}" />
-         </div>
-         <md-card-title>
-           <md-card-title-text>
-             <span ui-sref="khojiApp.productdetail({product:productItem})" class="md-headline">{{productItem.name}}</span>
-           </md-card-title-text>
-         </md-card-title>
-         <md-card-content>
-           <p>
-             {{productItem.price}}
-           </p>
-         </md-card-content>
-         <md-button ng-if="!ctrl.previewMode" ui-sref="khojiApp.productedit({product:productItem})" class="md-raised md-primary"> Edit </md-button>
-         <md-button ng-if="ctrl.previewMode" ui-srefsss="khojiApp.productdetail({product:productItem})" class="md-raised md-primary"> View </md-button>
-       </md-card>
-    </div>
+  <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="33">
+
+		<md-card>
+		  <md-card-header>
+			<md-card-avatar>
+			  <img class="md-user-avatar" ng-src="{{productItem.pictures[0].src}}">
+			</md-card-avatar>
+			<md-card-header-text>
+			  <span ui-sref="khojiApp.productdetail({product:productItem})" class="md-headline">{{productItem.name}}</span>
+			  <span class="md-subhead">Product</span>
+			</md-card-header-text>
+		  </md-card-header>
+		  <img ng-src="{{productItem.pictures[0].src}}" class="md-card-image" alt="image caption">
+		  <md-card-title>
+			<md-card-title-text>
+			  <span class="md-subhead">Product Price: Rs. {{productItem.price}}</span>
+			</md-card-title-text>
+		  </md-card-title>
+		  <md-card-content>
+			<p>
+			 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+			</p>
+		  </md-card-content>
+		</md-card>
+</div>
+	
   <md-button ng-if="!ctrl.previewMode" layout="row" layout-align="center center" ui-sref="khojiApp.productedit({isAddProduct:true})" style="display:flex;"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>
 </div>
+
+
 </md-content>

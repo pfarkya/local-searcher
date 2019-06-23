@@ -1,19 +1,45 @@
 <md-content class="md-padding" layout="column" >
+<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;" >
+		
+		
+	<div flex="50">
+		<md-card>
+		  <div  layout-align="center center" class="" >
+			<pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
+		  </div>
+		  <md-card-title>
+			<md-card-title-text>
+			  <span class="md-subhead" style="text-align:center">This is a sample picture</span>
+			</md-card-title-text>
+		  </md-card-title>
+		</md-card>
+	</div>
+	<div flex="50">
+		<md-card>
+		  <md-card-header>
+			<md-card-avatar>
+			  <pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
+			</md-card-avatar>
+		<md-card-header-text>
+		  <span class="md-title">{{ctrl.product.name}}</span>
+		  <span class="md-subhead">Sub header</span>
+		</md-card-header-text>
+		  </md-card-header>
+		 <md-card-title>
+			<md-card-title-text>
+			  <span class="md-headline">Card headline</span>
+			  <span class="md-subhead">Product Price: Rs. {{ctrl.product.price}}</span>
+			</md-card-title-text>
+		  </md-card-title>
+		  <md-card-content>
+			<h5>
+			 {{ctrl.product.about}}
+			</h5>
+		  </md-card-content>
+		</md-card>
+	</div>
 
-  <md-card >
-    <div  layout-align="center center" class=""style="width:500px; height:500px;" >
-      <pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
-    </div>
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{ctrl.product.name}}</span>
-        <h6>Price:{{ctrl.product.price}}</h6>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content>
-      <h5>About</h5>
-      <p>{{ctrl.product.about}}</p>
-    </md-card-content>
-  </md-card>
+</div>
+
 
 </md-content>
