@@ -2,7 +2,7 @@ angular.module('khoziApp')
 .controller('serviceeditCtrl',['$scope','$http','$state','$stateParams','login',function($scope,$http,$state,$stateParams,login) {
   console.log('serviceeditCtrl');
   let ctrl = this
-  ctrl.viewMode = true
+  ctrl.viewMode = true;;
   ctrl.service = {}
   if($stateParams.service) {
     ctrl.service = Object.assign({}, $stateParams.service)

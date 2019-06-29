@@ -1,19 +1,48 @@
-<md-content class="md-padding" layout="column" >
 
-  <md-card >
-    <div  layout-align="center center" class=""style="width:500px; height:500px;" >
-      <pic-scroller  pictures="ctrl.service.pictures"></pic-scroller>
-    </div>
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{ctrl.service.name}}</span>
-        <h6>Price:{{ctrl.service.price}}</h6>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content>
-      <h5>About</h5>
-      <p>{{ctrl.service.about}}</p>
-    </md-card-content>
-  </md-card>
+
+<md-content class="md-padding" layout="column" >
+<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;" >
+		
+		
+	<div flex="35">
+		<md-card>
+		  <div  layout-align="center center" class="" >
+			<pic-scroller  pictures="ctrl.service.pictures"></pic-scroller>
+		  </div>
+		  <md-card-title>
+			<md-card-title-text>
+			  <span class="md-subhead" style="text-align:center">This is a sample picture</span>
+			</md-card-title-text>
+		  </md-card-title>
+		</md-card>
+	</div>
+	<div flex="50">
+		<md-card>
+		  <md-card-header>
+			<md-card-avatar>
+			   <img class="md-user-avatar" ng-src="{{ctrl.service.pictures[0].src}}">
+			</md-card-avatar>
+		<md-card-header-text>
+		  <span class="md-title">{{ctrl.service.name}}</span>
+		  <span class="md-subhead">Sub header</span>
+		</md-card-header-text>
+		  </md-card-header>
+		 <md-card-title>
+			<md-card-title-text>
+			  <span class="md-headline">Card headline</span>
+			  <span class="md-subhead">service Price: Rs. {{ctrl.service.price}}</span>
+			</md-card-title-text>
+		  </md-card-title>
+		  <md-card-content>
+			<p>
+			 {{ctrl.service.about}}
+			</p>
+		  </md-card-content>
+		</md-card>
+	</div>
+
+</div>
+
 
 </md-content>
+

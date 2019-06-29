@@ -2,7 +2,7 @@ angular.module('khoziApp')
 .controller('producteditCtrl',['$scope','$http','$state','$stateParams','login',function($scope,$http,$state,$stateParams,login) {
   console.log('producteditCtrl');
   let ctrl = this
-  ctrl.viewMode = true
+  ctrl.viewMode = true;;
   ctrl.product = {}
   if($stateParams.product) {
     ctrl.product = Object.assign({}, $stateParams.product)
