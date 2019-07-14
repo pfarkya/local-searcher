@@ -1,8 +1,10 @@
-<md-content class="md-padding" layout="column" >
-<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;" >
+
+
+
+<div layout-wrap class="layout-row layout-xs-column"  layout="row" style="width: 100%;" >
 		
 		
-	<div flex="35">
+	<div flex="100">
 		<md-card>
 		  <div  layout-align="center center" class="" >
 			<pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
@@ -14,30 +16,43 @@
 		  </md-card-title>
 		</md-card>
 	</div>
-	<div flex="50">
-		<md-card>
-		  <md-card-header>
-			<md-card-avatar>
-			  <pic-scroller  pictures="ctrl.product.pictures"></pic-scroller>
-			</md-card-avatar>
-		<md-card-header-text>
-		  <span class="md-title">{{ctrl.product.name}}</span>
-		  <span class="md-subhead">Sub header</span>
-		</md-card-header-text>
-		  </md-card-header>
-		 <md-card-title>
-			<md-card-title-text>
-			  <span class="md-headline">Card headline</span>
-			  <span class="md-subhead">Product Price: Rs. {{ctrl.product.price}}</span>
-			</md-card-title-text>
-		  </md-card-title>
-		  <md-card-content>
-			<p>
-			 {{ctrl.product.about}}
-			</p>
-		  </md-card-content>
-		</md-card>
-	</div>
+
+</div>
+
+
+
+<div layout-wrap class="layout-row layout-xs-column"  layout="row" style="width: 100%;" >
+		
+	<div flex="60" flex-offset-gt-sm="5">
+		  <h2 class="md-title">{{ctrl.product.name}}</h2>
+		  <div>about Project...</div>
+		  <div>{{ctrl.product.about}}</div>
+		  <div class="md-subhead">Product Price: Rs. {{ctrl.product.price}}</div>
+	<h2 class="md-title">comments...</h2>
+
+      <md-list-item class="md-3-line"  ng-repeat="picture in ctrl.product.pictures" >
+        <img ng-src="{{picture.src}}" class="md-avatar" alt="{{product.src}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3><b>User Name</b></h3>
+          <h4>14-07-2019</h4>
+		   <p>Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.</p>
+        </div>
+		<md-divider ></md-divider>
+      </md-list-item>
+
+      <md-list-item class="md-3-line" >
+        <img ng-src="{{ctrl.product.pictures[0].src}}" class="md-avatar md-large" alt="{{product.src}}" />
+        <div class="md-list-item-text" layout="column">
+          <h3><b>User Name</b></h3>
+		 <md-input-container class="" >
+			  <label>Write About your business</label>
+			  <textarea required type="text" md-maxlength="500" rows="2" md-select-on-focus ng-model="" ></textarea>
+		</md-input-container></br>
+        </div>
+      </md-list-item>
+
+
+
 
 </div>
 

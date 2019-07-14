@@ -1,8 +1,8 @@
-<md-button class="md-raised md-primary" ng-if="!ctrl.previewMode" ui-sref="khojiApp.serviceedit({isAddService:true})" >Add Service</md-button>
-<md-content class="md-padding" layout="row">
-<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
+<div style="padding-left:20px;"  > <h2 >Services</h2> </div>
+<md-content class="md-padding" layout="row"  style="background-color:#f2f2f2">
+<div layout-wrap class="layout-row layout-xs-column" style="width: 100%;" >
 	
-<div ng-repeat="serviceItem in ctrl.serviceList" class="productCard" flex="25">
+<div ng-repeat="serviceItem in ctrl.serviceList" class="productCard" flex-xs flex-gt-xs="30">
 
 		<md-card >
 		  <md-card-header>
@@ -14,19 +14,26 @@
 			  <span class="md-subhead">service</span>
 			</md-card-header-text>
 		  </md-card-header>
-		  <img ng-src="{{serviceItem.pictures[0].src}}" class="md-card-image" alt="image caption">
+		  <img ng-src="{{serviceItem.pictures[0].src}}" class="md-card-image" alt="image caption" style="height:250px !important;">
 		  <md-card-title>
 			<md-card-title-text>
 			  <span class="md-subhead">service Price: Rs. {{serviceItem.price}}</span>
 			</md-card-title-text>
 		  </md-card-title>
-		  <md-card-content>
+		  <md-card-content  style="height:80px !important;">
 			<p>
 			 {{serviceItem.about}}
 			</p>
 		  </md-card-content>
 		</md-card>
 </div>
-
-	</div>
+</div>
 </md-content>
+
+<div class="inlineAdd">
+<img  style="display: block;"  ng-src="{{picture.src ?   picture.src : '../img/add.png'}}"  height=50 width=50 ng-if="!ctrl.previewMode" ui-sref="khojiApp.productedit({isAddProduct:true})"  id="testimg"  />
+<span style="display: block;"><hr></span>
+</div>	
+		 
+</br>
+</br>

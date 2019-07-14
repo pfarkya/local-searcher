@@ -1,8 +1,10 @@
 <md-content class="md-padding" layout="row" layout-xs="column" >
     <div ng-repeat="photos in ctrl.photos">
       <input type="file" app-filereader ng-model="photos.src" ng-disabled="ctrl.viewMode">
-      <img ng-src="{{photos.src}}" style="width:200px; height:200px;"  id="testimg"/>
+      <img ng-src="{{photos.pictures[0].src}}" style="width:200px; height:200px;"  id="testimg"/>
     </div>
-    <md-button ng-if="ctrl.photos.length < 20" ng-click="ctrl.addMorePics()" ng-disabled="ctrl.viewMode"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>
+    <md-button ng-if="ctrl.photos.photos.length < 20" ng-click="ctrl.addMorePics()" ng-disabled="ctrl.viewMode"><md-icon md-font-icon="fas fa-plus"></md-icon></md-button>
+	<md-button ng-click="ctrl.savePhotos()" ng-disabled="ctrl.viewMode">Save Photos</md-button>
 
 </md-content>
+

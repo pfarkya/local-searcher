@@ -246,6 +246,8 @@ var khoziApp = angular.module('khoziApp', ['ngMaterial',
               views: {
                 "profileTabs@khojiApp.profile": {
                   templateUrl: "/components/photos/photos.html",
+				  controller: 'photosCtrl',
+				  controllerAs: 'ctrl'
                 }
               }
             })

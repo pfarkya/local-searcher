@@ -1,10 +1,10 @@
-<md-button class="md-raised md-primary" ng-if="!ctrl.previewMode" ui-sref="khojiApp.productedit({isAddProduct:true})" >Add Product</md-button>
-<md-content class="md-padding" layout="row">
+<div style="padding-left:20px;"  > <h2 >Projects</h2> </div>
+<md-content class="md-padding" layout="row" style="background-color:#f2f2f2">
 <div layout-wrap class="layout-row layout-xs-column" style="width: 100%;">
-  <div ng-repeat="productItem in ctrl.productList" class="productCard" flex="25">
+  <div ng-repeat="productItem in ctrl.productList" class="productCard" style="padding:10px;" flex-xs flex-gt-xs="30">
 
 		<md-card >
-		  <md-card-header>
+		  <md-card-header>	
 			<md-card-avatar>
 			  <img class="md-user-avatar" ng-src="{{productItem.pictures[0].src}}">
 			</md-card-avatar>
@@ -13,22 +13,26 @@
 			  <span class="md-subhead">Product</span>
 			</md-card-header-text>
 		  </md-card-header>
-		  <img ng-src="{{productItem.pictures[0].src}}" class="md-card-image" alt="image caption">
+		  <img ng-src="{{productItem.pictures[0].src}}" class="md-card-image" alt="image caption" style="height:250px !important;">
 		  <md-card-title>
 			<md-card-title-text>
 			  <span class="md-subhead">Product Price: Rs. {{productItem.price}}</span>
 			</md-card-title-text>
 		  </md-card-title>
-		  <md-card-content>
+		  <md-card-content style="height:80px !important;">
 			<p>
-			 The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+			 {{productItem.about}}
 			</p>
 		  </md-card-content>
 		</md-card>
 </div>
-	
-
 </div>
-
-
 </md-content>
+
+<div class="inlineAdd">
+<img  style="display: block;"  ng-src="{{picture.src ?   picture.src : '../img/add.png'}}"  height=50 width=50 ng-if="!ctrl.previewMode" ui-sref="khojiApp.productedit({isAddProduct:true})"  id="testimg" />
+<span style="display: block;"><hr></span>
+</div>	
+		 
+</br>
+</br>
